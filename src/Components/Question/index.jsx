@@ -15,11 +15,11 @@ export function Question({ dados, children }) {
           <div className="radio">
             <label>
               <input type="radio" name="optradio" />
-              {dados.options[1]}
+              {dados.options[0]}
             </label>
             <label>
               <input type="radio" name="optradio" />
-              {dados.options[2]}
+              {dados.options[1]}
             </label>
             <label>
               <input type="radio" name="optradio" />
@@ -30,7 +30,7 @@ export function Question({ dados, children }) {
         {dados.tipo === 'checkbox' && (
           <div className="checkbox">
             <label>
-              <input type="checkbox" value="" /> {dados.options[2]}
+              <input type="checkbox" value="" /> {dados.options[0]}
             </label>
             <label>
               <input type="checkbox" value="" /> {dados.resposta}
