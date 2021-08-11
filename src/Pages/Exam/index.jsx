@@ -7,7 +7,7 @@ export function Exam() {
   const resposta = {
     pergunta:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur justo ante, eleifend sit amet neque et, sollicitudin tempus nulla. Nulla sit amet tellus dolor. Inpretium euismod ipsum in tincidunt.',
-    resposta: 'CERTO',
+    resposta: 1,
     options: ['opção 1', 'opção 2', 'opção 3'],
     tipo: TipoEnum.objetiva,
   };

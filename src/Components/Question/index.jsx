@@ -46,15 +46,22 @@ function selectTypeOfAnswer(dados, isEditing) {
         if(dados.options) {
           return (
             <div className="checkbox">
-              <label>
-                <input type="checkbox" value="" /> {dados.options[0]}
-              </label>
-              <label>
-                <input type="checkbox" value="" /> {dados.resposta}
-              </label>
-              <label>
-                <input type="checkbox" value="" /> {dados.options[2]}
-              </label>
+              {
+                dados.options.map((valor, indice) => {
+                  if(indice === dados.resposta){
+                    return (
+                      <label className="resposta-certa">
+                        <input type="checkbox" key="indice" value="" /> {valor}
+                      </label>  
+                    )
+                  }
+                  return (
+                    <label>
+                      <input type="checkbox" key="indice" value="" /> {valor}
+                    </label>
+                  )
+                })
+              }
             </div>
           );
         }

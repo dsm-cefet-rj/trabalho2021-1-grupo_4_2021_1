@@ -53,6 +53,10 @@ textarea.resposta {
   flex-direction: column;
 }
 
+.resposta-certa {
+  color: green;
+}
+
 @media (max-width: 576px){
   .card {
       width: 80%;
