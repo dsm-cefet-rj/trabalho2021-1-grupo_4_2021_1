@@ -1,0 +1,42 @@
+
+.page {
+    margin-bottom: 5vh;
+}
+
+.header {
+    height: 10vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c4c4c4;
+}
+
+.header .nome {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid;
+    outline: none;
+    font-size: 32px;
+    padding-inline-end: 24px;
+}
+
+.header .edit {
+    position: relative;
+    left: -20px;
+}
+
+.prova {
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+button.btn {
+    margin-right: 15%;
+}
+
+@media (max-width: 576px){
+    .header .nome {
+        font-size: 24px;
+    }
+}
