@@ -15,9 +15,10 @@ export function Question({ dados, isEditing, children }) {
 function selectTypeOfAnswer(dados, isEditing) {
   switch (dados.tipo) {
     case TipoEnum.discursiva:
+      const temResposta = dados.resposta;
       return (
         <>
-          <textarea rows="3" className="resposta" disabled={isEditing}></textarea>
+          <textarea rows="3" className={`resposta${temResposta ? '-certa' : ''}`} disabled={isEditing} value={dados.resposta}></textarea>
         </>
       );
       
@@ -25,18 +26,17 @@ function selectTypeOfAnswer(dados, isEditing) {
         if(dados.options) {
           return (
             <div className="radio">
-              <label>
-                <input type="radio" name="optradio" />
-                {dados.options[0]}
-              </label>
-              <label>
-                <input type="radio" name="optradio" />
-                {dados.options[1]}
-              </label>
-              <label>
-                <input type="radio" name="optradio" />
-                {dados.resposta}
-              </label>
+              {
+                dados.options.map((valor, indice) => {
+                  const res = indice === dados.resposta;
+                  return (
+                    <label className={res ? 'resposta-certa' : ''}>
+                      <input key={indice} type="radio" name="optradio" checked={res} />
+                      {valor}
+                    </label>
+                  );
+                })
+              }
             </div>
           );
         }
@@ -48,16 +48,10 @@ function selectTypeOfAnswer(dados, isEditing) {
             <div className="checkbox">
               {
                 dados.options.map((valor, indice) => {
-                  if(indice === dados.resposta){
-                    return (
-                      <label className="resposta-certa">
-                        <input type="checkbox" key="indice" value="" /> {valor}
-                      </label>  
-                    )
-                  }
+                  const res = indice === dados.resposta;
                   return (
-                    <label>
-                      <input type="checkbox" key="indice" value="" /> {valor}
+                    <label className={res ? 'resposta-certa' : ''}>
+                      <input type="checkbox"  key={indice} value="" checked={res} /> {valor}
                     </label>
                   )
                 })
