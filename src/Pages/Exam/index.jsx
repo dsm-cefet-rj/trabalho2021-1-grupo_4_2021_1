@@ -1,6 +1,7 @@
 import { Header } from '../../Components/Header';
 import { Question } from '../../Components/Question';
 import { TipoEnum } from '../../shared/enums';
+import { NavLink } from 'react-router-dom';
 import './styles.css';
 
 export function Exam() {
@@ -19,9 +20,11 @@ export function Exam() {
         <Question dados={{ ...resposta, tipo: TipoEnum.multipla }}>2</Question>
         <Question dados={resposta}>3</Question>
         <div id="botao">
-          <button type="submit" className="botaoEnviar">
+        <NavLink type="submit" class="btn button" to="/resultado">
+          <button type="submit" className="botaoEnviar" onClick={() => alert('Prova enviada com sucesso!')}>
             Enviar
           </button>
+        </NavLink>
         </div>
       </form>
     </>
