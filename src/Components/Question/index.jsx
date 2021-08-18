@@ -1,18 +1,26 @@
+import { useState } from 'react';
 import { TipoEnum } from '../../shared/enums';
 import './styles.css';
 
-export function Question({ dados, isEditing, children }) {
-  
+export function Question({ dados, isEditing, children, createNewQuestion }) {
+  const [enunciadoNovo, setEnunciadoNovo] = useState();
+
+
+  const handleEnunciadoChange = (event) => {
+    setEnunciadoNovo(event.target.value);
+    event.target.value = '';
+  }
+
   return (
     <div className="card col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
       <h4>{`Questão ${children}`}</h4>
-      <textarea rows="3" placeholder="Enunciado" defaultValue={dados.pergunta} disabled={!isEditing}></textarea>
-      {selectTypeOfAnswer(dados, isEditing)}
+      <textarea rows="3" placeholder="Enunciado" defaultValue={dados.pergunta} disabled={!isEditing} onChange={handleEnunciadoChange}></textarea>
+      {selectTypeOfAnswer(dados, isEditing, createNewQuestion, enunciadoNovo)}
     </div>
   );
 }
 
-function selectTypeOfAnswer(dados, isEditing) {
+function selectTypeOfAnswer(dados, isEditing, addQuestion, enunciadoNovo) {
   switch (dados.tipo) {
     case TipoEnum.discursiva:
       const temResposta = dados.resposta;
@@ -67,9 +75,9 @@ function selectTypeOfAnswer(dados, isEditing) {
           <div className="tipo">
               <p>Tipo de questão:</p>
               <div className="icones">
-                  <button className="material-icons">view_headline</button>
-                  <button className="material-icons">radio_button_checked</button>
-                  <button className="material-icons">check_box</button>
+                  <button className="material-icons" onClick={() => addQuestion(TipoEnum.discursiva, enunciadoNovo)}>view_headline</button>
+                  <button className="material-icons" onClick={() => addQuestion(TipoEnum.objetiva, enunciadoNovo)}>radio_button_checked</button>
+                  <button className="material-icons" onClick={() => addQuestion(TipoEnum.multipla, enunciadoNovo)}>check_box</button>
               </div>
           </div>
         </>
