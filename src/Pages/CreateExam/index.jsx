@@ -29,9 +29,9 @@ export const CreateExam = (props) => {
                     const num = index + 1;
                     return <Question key={num} dados={questao}>{num}</Question>
                 })}
-                <Question dados={{pergunta: null, tipo: null, options: null}}>{questoes.length + 1}</Question>
+                <Question dados={{ pergunta: null, tipo: null, options: null }}>{questoes.length + 1}</Question>
             </div>
-            <button type="button" class="btn btn-primary float-end">Salvar</button>
+            <button type="button" class="btn btn-primary float-end" onClick={() => alert("Prova criada com sucesso!")}>Salvar</button>
         </div>
     );
 }
