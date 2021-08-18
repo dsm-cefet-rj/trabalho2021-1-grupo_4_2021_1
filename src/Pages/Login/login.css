@@ -37,17 +37,17 @@
     color: white;
 }
 
-.right .button {
-    width: 99.3%;
-    background-color: #202024;
-    color: #eff2f5;
-    font-weight: 600;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-top: 5px;
-    border: none;
-}
+    .right .button {
+        width: 98%;
+        background-color: #202024;
+        color: #eff2f5;
+        font-weight: 600;
+        height: 50px;
+        border-radius: 5px;
+        font-size: 18px;
+        margin-top: 5px;
+        border: none;
+    }
 
 .right .button:hover{
     background-color: #121214;
