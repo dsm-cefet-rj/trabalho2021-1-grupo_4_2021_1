@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TipoEnum } from '../../shared/enums';
+import {ViewHeadline, RadioButtonChecked, CheckBox} from '@material-ui/icons';
 import './styles.css';
 
 export function Question({ dados, isEditing, children, createNewQuestion }) {
@@ -8,7 +9,6 @@ export function Question({ dados, isEditing, children, createNewQuestion }) {
 
   const handleEnunciadoChange = (event) => {
     setEnunciadoNovo(event.target.value);
-    event.target.value = '';
   }
 
   return (
@@ -26,7 +26,10 @@ function selectTypeOfAnswer(dados, isEditing, addQuestion, enunciadoNovo) {
       const temResposta = dados.resposta;
       return (
         <>
-          <textarea rows="3" className={`resposta${temResposta ? '-certa' : ''}`} disabled={isEditing} value={dados.resposta}></textarea>
+          <textarea rows="3" className={`resposta${temResposta ? '-certa' : ''}`} 
+            readOnly={isEditing} disabled={isEditing}
+            defaultValue={dados.resposta}>
+          </textarea>
         </>
       );
       
@@ -38,8 +41,8 @@ function selectTypeOfAnswer(dados, isEditing, addQuestion, enunciadoNovo) {
                 dados.options.map((valor, indice) => {
                   const res = indice === dados.resposta;
                   return (
-                    <label className={res ? 'resposta-certa' : ''}>
-                      <input key={indice} type="radio" name="optradio" checked={res} />
+                    <label key={indice} className={res ? 'resposta-certa' : ''}>
+                      <input type="radio" name="optradio" defaultChecked={res} />
                       {valor}
                     </label>
                   );
@@ -58,8 +61,8 @@ function selectTypeOfAnswer(dados, isEditing, addQuestion, enunciadoNovo) {
                 dados.options.map((valor, indice) => {
                   const res = indice === dados.resposta;
                   return (
-                    <label className={res ? 'resposta-certa' : ''}>
-                      <input type="checkbox"  key={indice} value="" checked={res} /> {valor}
+                    <label key={indice} className={res ? 'resposta-certa' : ''}>
+                      <input type="checkbox" defaultValue="" defaultChecked={res} /> {valor}
                     </label>
                   )
                 })
@@ -75,9 +78,9 @@ function selectTypeOfAnswer(dados, isEditing, addQuestion, enunciadoNovo) {
           <div className="tipo">
               <p>Tipo de questão:</p>
               <div className="icones">
-                  <button className="material-icons" onClick={() => addQuestion(TipoEnum.discursiva, enunciadoNovo)}>view_headline</button>
-                  <button className="material-icons" onClick={() => addQuestion(TipoEnum.objetiva, enunciadoNovo)}>radio_button_checked</button>
-                  <button className="material-icons" onClick={() => addQuestion(TipoEnum.multipla, enunciadoNovo)}>check_box</button>
+                  <ViewHeadline fontSize="large" className="material-icons" onClick={() => addQuestion(TipoEnum.discursiva, enunciadoNovo)} />
+                  <RadioButtonChecked fontSize="large" className="material-icons" onClick={() => addQuestion(TipoEnum.objetiva, enunciadoNovo)} />
+                  <CheckBox fontSize="large" className="material-icons" onClick={() => addQuestion(TipoEnum.multipla, enunciadoNovo)} />
               </div>
           </div>
         </>

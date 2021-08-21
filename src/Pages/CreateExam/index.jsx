@@ -22,6 +22,11 @@ export const CreateExam = (props) => {
         setQuestoes([...questoes, {pergunta: enunciado, tipo}]);
     }
 
+    function salvarProva() {
+        alert("Prova criada com sucesso!");
+        window.location.pathname = '/prova';
+    }
+
     return (
         <div class="page">
             <header class="container-fluid header">
@@ -35,7 +40,7 @@ export const CreateExam = (props) => {
                 })}
                 <Question dados={{ pergunta: null, tipo: null, options: null }} createNewQuestion={addQuestion} isEditing={true}>{questoes.length + 1}</Question>
             </div>
-            <button type="button" class="btn btn-primary float-end" onClick={() => alert("Prova criada com sucesso!")}>Salvar</button>
+            <button type="button" class="btn btn-primary float-end" onClick={() => salvarProva()}>Salvar</button>
         </div>
     );
 }

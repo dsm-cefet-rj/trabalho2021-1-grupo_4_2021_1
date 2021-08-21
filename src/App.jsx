@@ -10,12 +10,12 @@ function App() {
   return (
     <Router>
       <div>
-        <nav class="navbar navbar-expand navbar-light bg-light">
-          <ul class="navbar-nav ms-4 me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><Link class="nav-link" to="/">Login</Link></li>
-            <li class="nav-item"><Link class="nav-link" to="/prova/criar">Criar Prova</Link></li>
-            <li class="nav-item"><Link class="nav-link" to="/prova">Prova</Link></li>
-            <li class="nav-item"><Link class="nav-link" to="/resultado">Resultado</Link></li>
+        <nav className="navbar navbar-expand navbar-light bg-light">
+          <ul className="navbar-nav ms-4 me-auto mb-2 mb-lg-0">
+            <li className="nav-item"><Link className="nav-link" to="/">Login</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/prova/criar">Criar Prova</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/prova">Prova</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/resultado">Resultado</Link></li>
           </ul>
         </nav>
       </div>

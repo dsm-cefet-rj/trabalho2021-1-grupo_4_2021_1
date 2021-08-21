@@ -20,7 +20,7 @@ export function Exam() {
         <Question dados={{ ...resposta, tipo: TipoEnum.multipla }}>2</Question>
         <Question dados={resposta}>3</Question>
         <div id="botao">
-        <NavLink type="submit" class="btn button" to="/resultado">
+        <NavLink type="submit" className="btn button" to="/resultado">
           <button type="submit" className="botaoEnviar" onClick={() => alert('Prova enviada com sucesso!')}>
             Enviar
           </button>

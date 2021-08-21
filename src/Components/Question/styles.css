@@ -44,7 +44,8 @@ textarea.resposta {
   border: none;
   border-radius: 50%;
   background-color: #c4c4c4;
-  padding: 10px;
+  padding: 6px;
+  cursor: pointer;
 }
 
 .radio, .checkbox{
@@ -66,78 +67,3 @@ textarea.resposta {
       width: 80%;
   }
 }
-
-
-/* .pergunta, .resposta {
-    margin-left: 10px;
-    resize: none;
-    height: 100px;
-    width: 97%;
-}
-
-.card textarea {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 8px;
-}
-
-.card  textarea + textarea {
-    margin-top: 10px;
-}       
-
-.radio, .checkbox{
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-}
-
-.question{
-    margin: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.75);
-    padding-bottom: 5px;
-  }
-
-.topo2{
-    padding: 10px;
-  }
- */
-  /*tablet*/
-/* @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .pergunta {
-     margin-left: 10px;
-     resize: none;
-     height: 100px;
-     width: 97%;
-   
-   }
-   
- } */
- 
- /*cel*/
- /* @media screen and (max-width: 767px) {
-   .pergunta {
-     margin-left: 5px;
-   }
- 
-   .question{
-     margin: 0 auto;
-     width: 300px;
-     margin-top: 10px;
-     padding: 10px;
-   }
-   .resposta{
-     margin-left: 5px;
-   }
- 
-   .topo1 {
-     align-items: center;
-   }
- 
- }
- 
- @media screen and (max-width: 374px) {
-   .question{
-     width: 250px;
-     
-   }
- 
- } */
