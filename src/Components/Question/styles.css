@@ -1,0 +1,69 @@
+textarea{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 8px;
+}
+
+textarea + textarea{
+  margin-top: 10px;
+}
+
+textarea.resposta {
+  resize: none;
+  height: 100px;
+}
+
+.card {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 1.25rem;
+}
+
+#nova-questao {
+  background-color: #E5E5E5;
+}
+
+.tipo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.tipo p {
+  margin-top: 5px;
+}
+
+.tipo .icones {
+  display: flex;
+  width: 50%;
+  align-self: center;
+  justify-content: space-around;
+}
+
+.tipo .icones .material-icons {
+  border: none;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.radio, .checkbox{
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.resposta-certa {
+  color: green;
+}
+
+@media (max-width: 576px){
+  .card {
+      width: 80%;
+  }
+
+  .tipo .icones {
+      width: 80%;
+  }
+}

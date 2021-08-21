@@ -1,0 +1,26 @@
+.exam {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+#botao {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+.botaoEnviar {
+    padding: 15px 50px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color: rgb(173, 255, 47);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px #999;
+    text-align: center;
+}

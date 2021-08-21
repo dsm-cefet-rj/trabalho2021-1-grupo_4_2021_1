@@ -1,0 +1,67 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+div.container {
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background-color: rgb(173, 255, 47);
+    height: 20vh;
+    padding: 10px;
+}
+
+.questoes {
+    outline: none;
+}
+
+.questoes .card{
+    margin: 20px;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,.75);
+}
+
+.questoes .card#questao-1 textarea{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 8px;
+}
+
+.questoes .card#questao-1 textarea + textarea{
+    margin-top: 10px;
+}
+
+.questoes .card#questao-1 textarea.pergunta {
+    resize: none;
+    height: 100px;
+}
+
+#botao{ 
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+ }
+.botaoEnviar{
+    padding: 15px 50px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;	
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color: rgb(173, 255, 47);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px #999;
+    text-align: center;
+
+  }
+
+
+
+
+
