@@ -8,11 +8,11 @@ export function checkLogin() {
 
 
     if (loginType == "aluno") {
-        render(<Exam />, document.getElementById('root'));  
+        location.pathname = '/prova' 
     } else if (loginType == "professor") {
-        render(<CreateExam />, document.getElementById('root'));
+        location.pathname = '/prova/criar'
     } else if (loginType == "escola") {
-        render(<ExamResult />, document.getElementById('root'));
+        location.pathname = '/resultado'
     }
 }
 
