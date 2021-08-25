@@ -22,7 +22,6 @@ export const Login = (props) => {
 
     return (
         <>
-        <Router>
             <div className="login">
                 <div className="login-logo">
                     <img src="assets/images/logo.png"></img>
@@ -49,7 +48,6 @@ export const Login = (props) => {
                     <h6><a href="">Não tenho conta</a></h6>
                 </div>
             </div>
-	    </Router>  
         </>
     )
 }
