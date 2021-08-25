@@ -5,12 +5,12 @@ import Sidebar from '../../Components/Layout/SideBar/sideBar'
 import Materia from '../../Components/Layout/Test/materia';
 
 
-export function StudentArea() {
+export function StudentArea(props) {
     return (
         <>
             <NavBar />
             <Row className="division">
-                <Col xs = "3"><Sidebar nome="nome_aluno"/></Col>
+                <Col xs = "3"><Sidebar nome={props.user}/></Col>
                 <Col><Materia /></Col>
             </Row>
 

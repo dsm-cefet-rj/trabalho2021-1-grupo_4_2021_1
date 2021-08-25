@@ -1,11 +1,23 @@
-import React from 'react';
-import './login.css';
-import { MdEmail, MdLock} from "react-icons/md";
-import Button from '@material-ui/core/Button';
-import { checkLogin } from './typelogin';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { MdEmail, MdLock} from "react-icons/md";
+import './login.css';
+import { login } from './typelogin';
 
-export const Login = () => {
+export const Login = (props) => {
+    const [userLocal, setUserLocal] = useState('');
+    const [passwordLocal, setPasswordLocal] = useState('');
+
+    const checkLogin = async () => {
+        login(userLocal, passwordLocal).then(res => {
+            if(res) {
+                props.setUser(res.username);
+                location.pathname = res.type;
+            }
+        });
+    }
+
     return (
         <>
         <Router>
@@ -20,12 +32,12 @@ export const Login = () => {
                     </div>
                     <div className="loginEmail">
                         <MdEmail />
-                        <input type="text" placeholder="Digite um email" id="email" />
+                        <input type="text" value={userLocal} onChange={e => setUserLocal(e.target.value)} placeholder="Digite um email" id="email" />
                     </div>
 
                     <div className="loginSenha">
                         <MdLock />
-                        <input type="password" placeholder="Digite sua senha" />
+                        <input type="password" value={passwordLocal} onChange={e => setPasswordLocal(e.target.value)} placeholder="Digite sua senha" />
                     </div>
 
                     <Button variant="contained" color="primary" className="button" onClick={() => checkLogin()}>
@@ -35,7 +47,6 @@ export const Login = () => {
                     <h6><a href="">Não tenho conta</a></h6>
                 </div>
             </div>
-    
 	    </Router>  
         </>
     )

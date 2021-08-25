@@ -1,22 +1,22 @@
-export function checkLogin() {
-    let loginType = checkLoginType(document.getElementById("email").value);
+export const login = async (user, password) => {
+    try {
+        const response = await fetch('http://localhost:3001/users');
+        const json = await response.json();
+        let type;
 
+        const userObj = json.find(obj => obj.username == user);
+        if(userObj && userObj.password == password){
+            type = userObj.username.split('@')[1].split('.com')[0];
+        }
 
-    if (loginType == "aluno") {
-        location.pathname = 'aluno'
-    } else if (loginType == "professor") {
-        location.pathname = 'professor'
-    } else if (loginType == "escola") {
-        location.pathname = '/resultado'
+        if (type == "aluno" || type == "professor" || type == "escola") {
+            return { type, username: userObj.username};
+        }
+        else {
+            alert('Usuário não encontrado');
+        }
     }
-}
-
-function checkLoginType(email) {
-    if (email == "aluno@aluno.com") {
-        return "aluno";
-    } else if (email == "professor@professor.com") {
-        return "professor";
-    } else if (email == "escola@escola.com") {
-        return "escola";
+    catch(error){
+        console.log(error);
     }
 }
