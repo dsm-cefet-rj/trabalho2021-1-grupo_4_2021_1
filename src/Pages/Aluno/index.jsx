@@ -10,7 +10,7 @@ export function StudentArea(props) {
         <>
             <NavBar />
             <Row className="division">
-                <Col xs = "3"><Sidebar nome={props.user}/></Col>
+                <Col xs = "3"><Sidebar nome={props.user.username}/></Col>
                 <Col><Materia /></Col>
             </Row>
 

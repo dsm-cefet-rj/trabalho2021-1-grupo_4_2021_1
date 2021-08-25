@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { MdEmail, MdLock} from "react-icons/md";
 import './login.css';
 import { login } from './typelogin';
 
 export const Login = (props) => {
-    const [userLocal, setUserLocal] = useState('');
-    const [passwordLocal, setPasswordLocal] = useState('');
+    const history = useHistory();
 
     const checkLogin = async () => {
-        login(userLocal, passwordLocal).then(res => {
+        login(props.user.username, props.user.password).then(res => {
             if(res) {
-                props.setUser(res.username);
-                location.pathname = res.type;
+                history.push(res.type);
             }
         });
+    }
+
+    function handleInputChange(e) {
+        props.setUser({...props.user, [e.target.name]: e.target.value});
     }
 
     return (
@@ -32,12 +34,12 @@ export const Login = (props) => {
                     </div>
                     <div className="loginEmail">
                         <MdEmail />
-                        <input type="text" value={userLocal} onChange={e => setUserLocal(e.target.value)} placeholder="Digite um email" id="email" />
+                        <input type="text" name="username" value={props.user.username} onChange={handleInputChange} placeholder="Digite um email" id="email" />
                     </div>
 
                     <div className="loginSenha">
                         <MdLock />
-                        <input type="password" value={passwordLocal} onChange={e => setPasswordLocal(e.target.value)} placeholder="Digite sua senha" />
+                        <input type="password" name="password" value={props.user.password} onChange={handleInputChange} placeholder="Digite sua senha" />
                     </div>
 
                     <Button variant="contained" color="primary" className="button" onClick={() => checkLogin()}>

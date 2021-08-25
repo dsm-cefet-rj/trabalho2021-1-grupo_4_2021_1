@@ -4,12 +4,12 @@ import { NavBar } from '../../Components/Layout/NavBar/navBar';
 import Sidebar from '../../Components/Layout/SideBar/sideBar'
 import Turma from '../../Components/Layout/turmas/turma';
 
-export function TeacherArea() {
+export function TeacherArea(props) {
     return (
         <>
             <NavBar />
             <Row className="division">
-                <Col xs = "3"><Sidebar nome="nome_professor"/></Col>
+                <Col xs = "3"><Sidebar nome={props.user.username}/></Col>
                 <Col><Turma /></Col>
             </Row>
 

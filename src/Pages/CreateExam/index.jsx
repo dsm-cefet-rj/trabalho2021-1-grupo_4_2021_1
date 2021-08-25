@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TipoEnum } from '../../shared/enums';
 import { Question } from '../../Components/Question';
 import './styles.css';
+import { Edit } from '@material-ui/icons';
 
 export const CreateExam = (props) => {
 
@@ -31,7 +32,7 @@ export const CreateExam = (props) => {
         <div class="page">
             <header class="container-fluid header">
                 <input class="nome" placeholder="Nome da Prova" />
-                <span class="material-icons edit">edit</span>
+                <Edit className="material-icons edit" fontSize="small" />
             </header>
             <div class="container prova d-flex">
                 {questoes.map((questao, index) => {
