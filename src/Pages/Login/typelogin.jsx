@@ -5,7 +5,7 @@ export function checkLogin() {
     if (loginType == "aluno") {
         location.pathname = 'aluno'
     } else if (loginType == "professor") {
-        location.pathname = '/prova/criar'
+        location.pathname = 'professor'
     } else if (loginType == "escola") {
         location.pathname = '/resultado'
     }

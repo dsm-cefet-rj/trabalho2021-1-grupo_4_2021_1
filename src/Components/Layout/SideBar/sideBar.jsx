@@ -9,7 +9,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <div
     style={{ display: 'flex', height: '100vh', overflow: 'scroll initial'}}
@@ -22,7 +22,7 @@ const Sidebar = () => {
               className="text-decoration-none"
               style={{ color: 'inherit' }}
             >
-              nome_do_aluno
+              {props.nome}
             </a>
           </CDBSidebarHeader>
 
