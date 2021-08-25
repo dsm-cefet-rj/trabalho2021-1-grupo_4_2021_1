@@ -1,14 +1,9 @@
-import { render } from 'react-dom';
-import { Exam } from '../Exam';
-import { CreateExam } from '../CreateExam';
-import { ExamResult } from '../ExamResult';
-
 export function checkLogin() {
     let loginType = checkLoginType(document.getElementById("email").value);
 
 
     if (loginType == "aluno") {
-        location.pathname = '/prova' 
+        location.pathname = 'aluno'
     } else if (loginType == "professor") {
         location.pathname = '/prova/criar'
     } else if (loginType == "escola") {

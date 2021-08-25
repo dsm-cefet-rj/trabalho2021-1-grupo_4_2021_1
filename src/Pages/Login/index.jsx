@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 export const Login = () => {
     return (
+        <>
         <Router>
             <div className="login">
                 <div className="login-logo">
@@ -36,6 +37,7 @@ export const Login = () => {
             </div>
     
 	    </Router>  
+        </>
     )
 }
 
