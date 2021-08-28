@@ -1,7 +1,7 @@
 import { Header } from '../../Components/Header';
 import { Question } from '../../Components/Question';
 import { TipoEnum } from '../../shared/enums';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import './styles.css';
 
 export function Exam() {
@@ -12,6 +12,8 @@ export function Exam() {
     tipo: TipoEnum.objetiva,
   };
 
+  const history = useHistory();
+
   return (
     <>
       <Header />
@@ -20,11 +22,12 @@ export function Exam() {
         <Question dados={{ ...resposta, tipo: TipoEnum.multipla }}>2</Question>
         <Question dados={resposta}>3</Question>
         <div id="botao">
-        <NavLink type="submit" className="btn button" to="/resultado">
-          <button type="submit" className="botaoEnviar" onClick={() => alert('Prova enviada com sucesso!')}>
+          <button type="submit" className="botaoEnviar" onClick={() => { 
+              alert('Prova enviada com sucesso!')
+              history.push('/resultado');
+            }}>
             Enviar
           </button>
-        </NavLink>
         </div>
       </form>
     </>

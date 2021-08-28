@@ -1,14 +1,16 @@
 import React, { useReducer, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import { Exam } from './Pages/Exam';
 import { CreateExam } from './Pages/CreateExam';
 import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
 import  StudentArea  from './Pages/Aluno';
 import TeacherArea from './Pages/Professor';
+import { NavBar } from './Components/Layout/NavBar/navBar';
 
 
 function App() {
+  const history = useHistory();
   const [user, setUser] = useState({});
 
   function questoesReducer(questoes, action) {
@@ -21,7 +23,8 @@ function App() {
   const [questoes, dispatch] = useReducer(questoesReducer, []);
 
   return (
-    <Router>
+    <Router history={history}>
+      <NavBar user={user} />
       <Switch>
         <Route path="/aluno"><StudentArea user={user}/></Route>
         <Route path="/professor"><TeacherArea user={user}/></Route>

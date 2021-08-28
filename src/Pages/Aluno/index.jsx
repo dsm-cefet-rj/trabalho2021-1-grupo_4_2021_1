@@ -8,7 +8,6 @@ import Materia from '../../Components/Layout/Test/materia';
 export function StudentArea(props) {
     return (
         <>
-            <NavBar />
             <Row className="division">
                 <Col xs = "3"><Sidebar nome={props.user.username}/></Col>
                 <Col><Materia /></Col>
