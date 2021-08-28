@@ -7,7 +7,7 @@ export function Question({ dados, isEditing, children }) {
     <div className="card col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
       <h4>{`Questão ${children}`}</h4>
       <textarea rows="3" placeholder="Enunciado" defaultValue={dados.pergunta} disabled={!isEditing}></textarea>
-      {selectTypeOfAnswer(dados)}
+      {selectTypeOfAnswer(dados, isEditing)}
     </div>
   );
 }

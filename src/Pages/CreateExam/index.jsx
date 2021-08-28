@@ -9,12 +9,12 @@ import { useHistory } from 'react-router-dom';
 export const CreateExam = (props) => {
     const history = useHistory();
 
-    const addQuestion = (tipo, enunciado) => {
-        props.dispatch({type: 'add_question', payload: [...props.questoes, {pergunta: enunciado, tipo}]});
+    const addQuestion = (tipo, pergunta, options) => {
+        props.dispatch({type: 'add_question', payload: {pergunta, tipo, options}});
     }
 
     async function salvarProva() {
-        alert("Prova criada com sucesso!");  
+        alert("Prova criada com sucesso!");
         history.push('/prova');
     }
 

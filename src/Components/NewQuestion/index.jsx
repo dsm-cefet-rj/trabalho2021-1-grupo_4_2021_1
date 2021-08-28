@@ -16,17 +16,23 @@ export function NewQuestion({ isEditing, children, createNewQuestion }) {
   const isQuestionType = (type) => tipoQuestao == type;
 
   const handleCreateNewQuestion = () => {
-    createNewQuestion(tipoQuestao, enunciadoNovo);
-    setEnunciadoNovo('');
+    createNewQuestion(tipoQuestao, enunciadoNovo, opcoes);
     setTipoQuestao();
+    setOpcoes([]);
+    document.getElementById('newQuestion').value = '';
+  }
+
+  const addOption = () => {
+    setOpcoes([...opcoes, opcao]);
+    document.getElementById('txtOpcaoRadio').value = '';
+    document.getElementById('txtOpcaoCheck').value = '';
   }
 
 
   return (
     <div className="card col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-6">
       <h4>{`Questão ${children}`}</h4>
-      <textarea rows="3" placeholder="Enunciado" disabled={!isEditing} onChange={handleEnunciadoChange}>{enunciadoNovo}</textarea>
-      {/* {selectTypeOfAnswer(dados, isEditing, createNewQuestion, enunciadoNovo)} */}
+      <textarea id="newQuestion" rows="3" placeholder="Enunciado" disabled={!isEditing} onChange={handleEnunciadoChange}>{enunciadoNovo}</textarea>
 
       {/* Discursiva */}
       <textarea rows="3" 
@@ -37,44 +43,38 @@ export function NewQuestion({ isEditing, children, createNewQuestion }) {
       {/* Objetiva */}
       <div className="radio" hidden={!isQuestionType(TipoEnum.objetiva)}>
           {
-            opcoes.length ? opcoes.map(op => {
-              <div>
+            opcoes ? opcoes.map((op, index) => {
+              return(
+                <label htmlFor="optradio" key={index}>
                   <input type="radio" name="optradio" />
-                  <label>{op}</label>
-              </div>
-            })
-            : <div>
-                <input type="radio" name="optradio" />
-                <input type="text" onChange={(e) => setOpcao(e.target.value)}></input>
-                <input type="button" value="+" className="btn btn-primary" onClick={() => setOpcoes([...opcoes, opcao])}></input>
-              </div>
+                  {op}
+                </label>
+              )
+            }) : null
           }
           <div className="default">
             <input type="radio" name="optradio" />
-            <input type="text" onChange={(e) => setOpcao(e.target.value)}></input>
-            <input type="button" value="+" className="btn btn-primary" onClick={() => setOpcoes([...opcoes, opcao])}></input>
+            <input type="text" id="txtOpcaoRadio" onChange={(e) => setOpcao(e.target.value)}></input>
+            <input type="button" value="+" className="btn btn-primary" onClick={addOption}></input>
           </div>
       </div>
 
       {/* Múltipla escolha */}
       <div className="checkbox" hidden={!isQuestionType(TipoEnum.multipla)}>
           {
-            opcoes.length ? opcoes.map(op => {
-              <div>
-                  <input type="checkbox" name="optcheckbox" />
-                  <label>{op}</label>
-              </div>
-            })
-            : <div>
-                <input type="checkbox" name="optcheckbox" />
-                <input type="text" onChange={(e) => setOpcao(e.target.value)}></input>
-                <input type="button" value="+" className="btn btn-primary" onClick={() => setOpcoes([...opcoes, opcao])}></input>
-              </div>
+            opcoes ? opcoes.map((op, index) => {
+              return(
+                <label htmlFor="optcheck" key={index}>
+                  <input type="checkbox" name="optcheck" />
+                  {op}
+                </label>
+              )
+            }) : null
           }
           <div className="default">
-            <input type="checkbox" name="optcheckbox" />
-            <input type="text" onChange={(e) => setOpcao(e.target.value)}></input>
-            <input type="button" value="+" className="btn btn-primary" onClick={() => setOpcoes([...opcoes, opcao])}></input>
+            <input type="checkbox" name="optcheck" />
+            <input type="text" id="txtOpcaoCheck" onChange={(e) => setOpcao(e.target.value)}></input>
+            <input type="button" value="+" className="btn btn-primary" onClick={addOption}></input>
           </div>
       </div>
 
@@ -89,6 +89,7 @@ export function NewQuestion({ isEditing, children, createNewQuestion }) {
       
       <div className="d-flex">
         <button className="btn btn-secondary float-start mt-20" type="button" hidden={isQuestionType()} onClick={() => setTipoQuestao()}>Voltar</button>
+        <button className="btn btn-danger float-start mt-20" type="button" hidden={isQuestionType()} onClick={() => setOpcoes([])}>Limpar</button>
         <button className="btn btn-success float-end mt-20" type="button" onClick={handleCreateNewQuestion}>Add</button>
       </div>
     </div>

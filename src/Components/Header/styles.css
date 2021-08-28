@@ -1,16 +1,19 @@
 .topo1 {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-start;
-    justify-content: flex-end;
-    background-color: rgb(173, 255, 47);
-    height: 15vh;
-    padding: 10px;
-  }
+  height: 10vh;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c4c4c4;
+}
   
-  @media screen and (max-width: 767px) {
-    .topo1{
-      text-align: center;
-      padding: 5px;
-    }
+.header h2 {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 767px) {
+  .topo1{
+    text-align: center;
+    padding: 5px;
+  }
 }
