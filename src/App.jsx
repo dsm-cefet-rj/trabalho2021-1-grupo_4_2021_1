@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, Provider } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import { Exam } from './Pages/Exam';
 import { CreateExam } from './Pages/CreateExam';
@@ -7,6 +7,7 @@ import { Login } from './Pages/Login';
 import  StudentArea  from './Pages/Aluno';
 import TeacherArea from './Pages/Professor';
 import { NavBar } from './Components/Layout/NavBar/navBar';
+import { store } from './shared/store';
 
 
 function App() {
@@ -23,21 +24,21 @@ function App() {
   const [questoes, dispatch] = useReducer(questoesReducer, []);
 
   return (
-    <Router history={history}>
-      <NavBar user={user} />
-      <Switch>
-        <Route path="/aluno"><StudentArea user={user}/></Route>
-        <Route path="/professor"><TeacherArea user={user}/></Route>
-        <Route path="/resultado"><ExamResult user={user}/></Route>
-        <Route path="/prova/criar">
-          <CreateExam 
-            user={user} questoes={questoes}
-            dispatch={dispatch}/>
-        </Route>
-        <Route path="/prova"><Exam user={user}/></Route>
-        <Route path="/"><Login user={user} setUser={setUser}/></Route>
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router history={history}>
+        <NavBar />
+        <Switch>
+          <Route path="/aluno"><StudentArea/></Route>
+          <Route path="/professor"><TeacherArea/></Route>
+          <Route path="/resultado"><ExamResult/></Route>
+          <Route path="/prova/criar">
+            <CreateExam />
+          </Route>
+          <Route path="/prova"><Exam/></Route>
+          <Route path="/"><Login /></Route>
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
