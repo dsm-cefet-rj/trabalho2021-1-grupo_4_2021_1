@@ -1,8 +1,8 @@
 import {createSlice, createAsyncThunk, createEntityAdapter} from '@reduxjs/toolkit'
-import {httpDelete, httpGet, httpPut, httpPost} from '../utils'
-import {baseUrl} from '../baseUrl'
+import {httpDelete, httpGet, httpPut, httpPost} from './utils'
+import {baseUrl} from './baseUrl'
 
-const ExamesAdapter = createEntityAdapter();
+const examesAdapter = createEntityAdapter();
 
 const initialState = examesAdapter.getInitialState({
     status: 'not_loaded',

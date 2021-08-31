@@ -26,8 +26,6 @@ function App() {
       <Router history={history}>
         <NavBar />
         <Switch>
-          <Route path="/aluno"><StudentArea/></Route>
-          <Route path="/professor"><TeacherArea/></Route>
           <Route path="/resultado"><ExamResult/></Route>
           <Route path="/prova/criar">
             <CreateExam />
