@@ -9,11 +9,11 @@ export function NavBar(props) {
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark">
-                <Container>
+                <Container >
                     <Navbar.Brand>GEPETO</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Container>
+                        <Container className = "container">
                             <Nav className="navbar justify-content-start">
                                 <Nav.Link><NavLink exact to="/">Login</NavLink></Nav.Link>
                                 <Nav.Link><NavLink to="/prova/criar">Criar Prova</NavLink></Nav.Link>
