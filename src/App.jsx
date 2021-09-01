@@ -5,7 +5,7 @@ import { CreateExam } from './Pages/CreateExam';
 import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
 import { NavBar } from './Components/Layout/NavBar/navBar';
-import { store } from './shared/store';
+import Alunos from './Components/Layout/CadastroAluno';
 
 
 function App() {
@@ -22,19 +22,20 @@ function App() {
   const [questoes, dispatch] = useReducer(questoesReducer, []);
 
   return (
-    <Provider store={store}>
-      <Router history={history}>
-        <NavBar />
-        <Switch>
-          <Route path="/resultado"><ExamResult/></Route>
-          <Route path="/prova/criar">
-            <CreateExam />
-          </Route>
-          <Route path="/prova"><Exam/></Route>
-          <Route path="/"><Login /></Route>
-        </Switch>
-      </Router>
-    </Provider>
+    <Router history={history}>
+      <NavBar user={user} />
+      <Switch>
+        <Route path="/resultado"><ExamResult user={user}/></Route>
+        <Route path="/cadastro"><Alunos user={user}/></Route>
+        <Route path="/professor" >
+          <CreateExam 
+            user={user} questoes={questoes}
+            dispatch={dispatch}/>
+        </Route>
+        <Route path="/aluno"><Exam user={user}/></Route>
+        <Route path="/"><Login user={user} setUser={setUser}/></Route>
+      </Switch>
+    </Router>
   );
 }
 

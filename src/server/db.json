@@ -1,6 +1,5 @@
 
 {
-    
   "users": [
     {
       "id": 1,
@@ -17,8 +16,5 @@
       "username": "leonardo@escola.com",
       "password": "123456"
     }
-  ],
-  "alunos": [
-    
   ]
 }

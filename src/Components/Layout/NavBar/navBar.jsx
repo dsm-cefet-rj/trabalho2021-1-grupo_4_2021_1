@@ -15,16 +15,16 @@ export function NavBar(props) {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Container className = "container">
                             <Nav className="navbar justify-content-start">
-                                <Nav.Link><NavLink exact to="/">Login</NavLink></Nav.Link>
-                                <Nav.Link><NavLink to="/prova/criar">Criar Prova</NavLink></Nav.Link>
-                                <Nav.Link><NavLink to="/prova">Prova</NavLink></Nav.Link>
-                                <Nav.Link><NavLink to="/resultado">Resultado</NavLink></Nav.Link>
+                                <Nav.Link><NavLink exact to="/" style={{textDecoration:'none'}}>Login</NavLink></Nav.Link>
+                                <Nav.Link><NavLink to="/professor" style={{textDecoration:'none'}}>Criar Prova</NavLink></Nav.Link>
+                                <Nav.Link><NavLink to="/aluno" style={{textDecoration:'none'}}>Prova</NavLink></Nav.Link>
+                                <Nav.Link><NavLink to="/resultado" style={{textDecoration:'none'}}>Resultado</NavLink></Nav.Link>
                             </Nav>
-                            <Navbar.Text className="justify-content-end">
+                            <Navbar.Text  className="justify-content-end" >
                                 {
                                     props.user?.username 
-                                    ? <span>Logado como: <NavLink exact to="/">{props.user.username}</NavLink></span>
-                                    : <NavLink to="/">Fazer Login</NavLink>
+                                    ? <span >Logado como: <NavLink  exact to="/" style={{textDecoration:'none'}}>{props.user.username}</NavLink></span>
+                                    : <NavLink to="/" style={{textDecoration:'none'}}>Fazer Login</NavLink>
                                 }
                             </Navbar.Text>
                         </Container>
