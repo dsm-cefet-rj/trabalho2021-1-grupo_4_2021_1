@@ -4,11 +4,10 @@ import { Exam } from './Pages/Exam';
 import { CreateExam } from './Pages/CreateExam';
 import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
-import  StudentArea  from './Pages/Aluno';
-import TeacherArea from './Pages/Professor';
 import { NavBar } from './Components/Layout/NavBar/navBar';
 import { store } from './shared/store';
 import { Provider } from 'react-redux';
+import Alunos from './Components/Layout/CadastroAluno';
 
 
 function App() {
@@ -29,9 +28,8 @@ function App() {
       <Router history={history}>
         <NavBar />
         <Switch>
-          <Route path="/aluno"><StudentArea/></Route>
-          <Route path="/professor"><TeacherArea/></Route>
           <Route path="/resultado"><ExamResult/></Route>
+          <Route path="/cadastro"><Alunos user={user}/></Route>
           <Route path="/prova/criar">
             <CreateExam />
           </Route>

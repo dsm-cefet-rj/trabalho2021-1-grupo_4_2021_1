@@ -34,7 +34,7 @@ export function Exam() {
 
   return (
     <>
-      <Header nome={exame.nomeProva}/>
+      <Header nome={exame?.nomeProva}/>
       <form action="" className="exam">
           {questoes.map((questao, index) => {
               const num = index + 1;

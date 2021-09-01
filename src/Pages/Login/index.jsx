@@ -69,7 +69,7 @@ export const Login = (props) => {
                         Login
                     </Button>
 
-                    <h6><a href="">Não tenho conta</a></h6>
+                    <h6><a href="/cadastro">Não tenho conta</a></h6>
                 </div>
             </div>
         </>
