@@ -4,9 +4,8 @@ import { Exam } from './Pages/Exam';
 import { CreateExam } from './Pages/CreateExam';
 import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
-import  StudentArea  from './Pages/Aluno';
-import TeacherArea from './Pages/Professor';
 import { NavBar } from './Components/Layout/NavBar/navBar';
+import Alunos from './Components/Layout/CadastroAluno';
 
 
 function App() {
@@ -26,15 +25,14 @@ function App() {
     <Router history={history}>
       <NavBar user={user} />
       <Switch>
-        <Route path="/aluno"><StudentArea user={user}/></Route>
-        <Route path="/professor"><TeacherArea user={user}/></Route>
         <Route path="/resultado"><ExamResult user={user}/></Route>
-        <Route path="/prova/criar">
+        <Route path="/cadastro"><Alunos user={user}/></Route>
+        <Route path="/professor" >
           <CreateExam 
             user={user} questoes={questoes}
             dispatch={dispatch}/>
         </Route>
-        <Route path="/prova"><Exam user={user}/></Route>
+        <Route path="/aluno"><Exam user={user}/></Route>
         <Route path="/"><Login user={user} setUser={setUser}/></Route>
       </Switch>
     </Router>

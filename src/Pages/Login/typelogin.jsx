@@ -1,6 +1,6 @@
 export const login = async (user, password) => {
     try {
-        const response = await fetch('http://localhost:3001/users');
+        const response = await fetch('http://localhost:3000/users');
         const json = await response.json();
         let type;
 
