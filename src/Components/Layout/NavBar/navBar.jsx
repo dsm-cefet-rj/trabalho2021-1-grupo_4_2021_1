@@ -6,6 +6,8 @@ import { NavLink } from "react-router-dom";
 
 
 export function NavBar(props) {
+    let user = localStorage.getItem('user');
+
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark">
@@ -22,8 +24,11 @@ export function NavBar(props) {
                             </Nav>
                             <Navbar.Text className="justify-content-end">
                                 {
-                                    props.user?.username 
-                                    ? <span>Logado como: <NavLink exact to="/">{props.user.username}</NavLink></span>
+                                    user
+                                    ? <span>Logado como: {user} <NavLink exact to="/" onClick={() => {
+                                        localStorage.removeItem('user');
+                                        user = '';
+                                    }}>Sair</NavLink></span>
                                     : <NavLink to="/">Fazer Login</NavLink>
                                 }
                             </Navbar.Text>

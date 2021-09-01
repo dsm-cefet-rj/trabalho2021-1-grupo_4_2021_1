@@ -1,4 +1,4 @@
-import React, { useReducer, useState, Provider } from 'react';
+import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import { Exam } from './Pages/Exam';
 import { CreateExam } from './Pages/CreateExam';
@@ -8,6 +8,7 @@ import  StudentArea  from './Pages/Aluno';
 import TeacherArea from './Pages/Professor';
 import { NavBar } from './Components/Layout/NavBar/navBar';
 import { store } from './shared/store';
+import { Provider } from 'react-redux';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
           <Route path="/prova/criar">
             <CreateExam />
           </Route>
-          <Route path="/prova"><Exam/></Route>
+          <Route path="/prova/:id"><Exam/></Route>
           <Route path="/"><Login /></Route>
         </Switch>
       </Router>

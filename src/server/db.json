@@ -1,7 +1,107 @@
 {
-    "users": [
-        {"id": 1, "username": "leonardo@aluno.com", "password": "123456"},
-        {"id": 2, "username": "leonardo@professor.com", "password": "123456"},
-        {"id": 3, "username": "leonardo@escola.com", "password": "123456"}
-    ]
+  "alunos": [
+    {
+      "id": 1,
+      "username": "leonardo@aluno.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "username": "matheus@aluno.com",
+      "password": "123456"
+    }
+  ],
+  "professores": [
+    {
+      "id": 1,
+      "username": "leonardo@professor.com",
+      "password": "123456"
+    }
+  ],
+  "exames": [
+    {
+      "0": {
+        "pergunta": "gfskjdgfkjsgfk",
+        "tipo": 1,
+        "options": []
+      },
+      "1": {
+        "pergunta": "dgajkfskfgksjj",
+        "tipo": 2,
+        "options": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      "nomeProva": "Testando 1",
+      "id": 1
+    },
+    {
+      "questoes": [
+        {
+          "pergunta": "hkasjdgkjgjkagk",
+          "tipo": 1,
+          "options": []
+        },
+        {
+          "pergunta": "adazfdfss",
+          "tipo": 1,
+          "options": []
+        }
+      ],
+      "id": 2
+    },
+    {
+      "questoes": [
+        {
+          "pergunta": "teste",
+          "tipo": 1,
+          "options": []
+        },
+        {
+          "pergunta": "sjadksagj",
+          "tipo": 3,
+          "options": [
+            "a",
+            "v",
+            "c"
+          ]
+        }
+      ],
+      "nomeProva": "Nova prova",
+      "id": 3
+    },
+    {
+      "questoes": [
+        {
+          "pergunta": "aa",
+          "tipo": 1,
+          "options": []
+        }
+      ],
+      "nomeProva": "aa",
+      "id": 4
+    },
+    {
+      "questoes": [
+        {
+          "pergunta": "tevhdkbksb",
+          "tipo": 1,
+          "options": []
+        },
+        {
+          "pergunta": "teste",
+          "tipo": 2,
+          "options": [
+            "aa",
+            "bb",
+            "cc"
+          ]
+        }
+      ],
+      "nomeProva": "Prova 6",
+      "id": 5
+    }
+  ]
 }

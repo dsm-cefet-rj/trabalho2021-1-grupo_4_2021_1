@@ -9,7 +9,7 @@ export function StudentArea(props) {
     return (
         <>
             <Row className="division">
-                <Col xs = "3"><Sidebar nome={props.user.username}/></Col>
+                <Col xs = "3"><Sidebar/></Col>
                 <Col><Materia /></Col>
             </Row>
 
