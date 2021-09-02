@@ -14,15 +14,6 @@ function App() {
   const history = useHistory();
   const [user, setUser] = useState({});
 
-  function questoesReducer(questoes, action) {
-    switch(action.type) {
-      case 'add_question':
-        return [...questoes, action.payload];
-    }
-  }
-
-  const [questoes, dispatch] = useReducer(questoesReducer, []);
-
   return (
     <Provider store={store}>
       <Router history={history}>
