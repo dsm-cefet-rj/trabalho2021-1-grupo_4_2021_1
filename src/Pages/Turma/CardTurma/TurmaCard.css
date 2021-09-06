@@ -1,5 +1,5 @@
 .card-Turma {
-    background-color: #31688d;
+    background-color: #165986;
     color: #fff;
     margin: 25px 10px 0;
     padding: 5px 0px;
@@ -10,7 +10,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #364673;
-    width: 150px;
+    width: 200px;
     height: 150px;
   }
 
@@ -20,7 +20,7 @@
     font-size: 18px;
     margin-bottom: 10px;
   }
-  
+
   .periodo-turma{
     font-size: 14px;
   }
