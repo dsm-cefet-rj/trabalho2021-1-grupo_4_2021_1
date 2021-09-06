@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import { Exam } from './Pages/Exam';
-import { CreateExam } from './Pages/CreateExam';
+import  {CreateExam}  from './Pages/CreateExam';
 import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
 import { NavBar } from './Components/Layout/NavBar/navBar';
@@ -30,7 +30,8 @@ function App() {
             <CreateExam />
           </Route>
           <Route path="/prova/:id"><Exam/></Route>
-          <Route path="/"><Login /></Route>
+          <Route exact path="/"><Login /></Route>
+          <Route path="/turma" component={Turma}/>
         </Switch>
       </Router>
     </Provider>

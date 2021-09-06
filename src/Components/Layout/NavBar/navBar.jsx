@@ -26,6 +26,7 @@ export function NavBar(props) {
                             <Nav.Link><NavLink to="/prova/1" style={{textDecoration:'none'}}>Prova</NavLink></Nav.Link>
                             <Nav.Link><NavLink to="/cadastro" style={{textDecoration:'none'}}>Cadastro Aluno</NavLink></Nav.Link>
                             <Nav.Link><NavLink to="/resultado" style={{textDecoration:'none'}}>Resultado</NavLink></Nav.Link>
+                            <Nav.Link><NavLink to="/turma" style={{textDecoration:'none'}}>Turma</NavLink></Nav.Link>
                         </Nav>
                         <Navbar.Text className="navLogin-pai">
                             {
