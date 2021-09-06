@@ -1,6 +1,6 @@
 import {createSlice, createAsyncThunk, createEntityAdapter} from '@reduxjs/toolkit'
 import {httpGet, httpPut, httpPost} from '../utils'
-import {baseUrl} from './baseUrl'
+import {baseUrl} from '../baseUrl'
 
 const turmasAdapter = createEntityAdapter();
 
@@ -10,8 +10,8 @@ const initialState = turmasAdapter.getInitialState({
     /* o array turmas foi removido do state inicial, será criado pelo adapter */
 });
 
-export const updateturmaServer = createAsyncThunk('turmas/updateturmaServer', async (turma, {getState}) => {
-    return await httpPut(`${baseUrl}//${turma.id}`, turma, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+export const updateTurmaServer = createAsyncThunk('turmas/updateTurmaServer', async (turma, {getState}) => {
+    return await httpPut(`${baseUrl}/${turma.id}`, turma, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
 export const turmasSlice = createSlice({
