@@ -1,5 +1,5 @@
 import React from 'react';
-import './container.css'
+import './container.css';
 
 const UIContainer = ({ children }) => (
   <div

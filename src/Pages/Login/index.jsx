@@ -72,7 +72,7 @@ export const Login = (props) => {
                         <h1>Acessar Conta</h1>
                     </div>
                     <form>
-                        <div className="loginEmail">
+                    <div className="loginEmail">
                             <MdEmail />
                             <input type="text" name="username" value={user.username} onChange={handleInputChange} placeholder="Digite um email" id="email" />
                         </div>

@@ -7,7 +7,10 @@ import { Login } from './Pages/Login';
 import { NavBar } from './Components/Layout/NavBar/navBar';
 import { store } from './shared/store';
 import { Provider } from 'react-redux';
-import Alunos from './Components/Layout/CadastroAluno';
+import { Usuarios} from './Pages/Usuários/index';
+import ProfessorTable from './Pages/Professor/professor';
+import AlunosTable from './Pages/Aluno/alunos';
+
 
 
 function App() {
@@ -19,8 +22,10 @@ function App() {
       <Router history={history}>
         <NavBar />
         <Switch>
+          <Route path="/cadastro/professores"><ProfessorTable/></Route>
+          <Route path="/cadastro/alunos"><AlunosTable/></Route>
           <Route path="/resultado"><ExamResult/></Route>
-          <Route path="/cadastro"><Alunos user={user}/></Route>
+          <Route path="/cadastro"><Usuarios user={user}/></Route>
           <Route path="/prova/criar">
             <CreateExam />
           </Route>
