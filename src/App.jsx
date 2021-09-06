@@ -26,7 +26,7 @@ function App() {
             <CreateExam />
           </Route>
           <Route path="/prova/:id"><Exam/></Route>
-          <Route path="/"><Login /></Route>
+          <Route exact path="/"><Login /></Route>
           <Route path="/turma" component={Turma}/>
         </Switch>
       </Router>
