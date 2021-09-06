@@ -12,20 +12,20 @@ const initialState = examesAdapter.getInitialState({
 
 export const fetchExames = createAsyncThunk('exames/fetchExames', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/exames`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+    return await httpGet(`${baseUrl}/exames`, {});
 });
 
 export const deleteExameServer = createAsyncThunk('exames/deleteExameServer', async (idExame, {getState}) => {
-    await httpDelete(`${baseUrl}/exames/${idExame}`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+    await httpDelete(`${baseUrl}/exames/${idExame}`, {});
     return idExame;
 });
 
 export const addExameServer = createAsyncThunk('exames/addExameServer', async (exame, {getState}) => {
-    return await httpPost(`${baseUrl}/exames`, exame, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+    return await httpPost(`${baseUrl}/exames`, exame, {});
 });
 
 export const updateExameServer = createAsyncThunk('exames/updateExameServer', async (exame, {getState}) => {
-    return await httpPut(`${baseUrl}/exames/${exame.id}`, exame, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+    return await httpPut(`${baseUrl}/exames/${exame.id}`, exame, {});
 });
 
 export const examesSlice = createSlice({

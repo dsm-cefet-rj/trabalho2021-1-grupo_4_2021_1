@@ -5,31 +5,42 @@ import { NewQuestion } from '../../Components/NewQuestion';
 import './styles.css';
 import { Edit } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addExameServer } from '../ExamesSlice';
 
 export const CreateExam = (props) => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const [questoes, setQuestoes] = useState([]);
+    const [nomeProva, setNomeProva] = useState();
 
     const addQuestion = (tipo, pergunta, options) => {
-        props.dispatch({type: 'add_question', payload: {pergunta, tipo, options}});
+        setQuestoes([...questoes, {pergunta, tipo, options}]);
     }
 
     async function salvarProva() {
         alert("Prova criada com sucesso!");
-        history.push('/prova');
+        dispatch(addExameServer({questoes, nomeProva})).then((res) => {
+            history.push(`/prova/${res.payload.id}`);
+        });
+    }
+
+    const handleNameChange = (event) => {
+        setNomeProva(event.target.value);
     }
 
     return (
         <div className="page">
             <header className="container-fluid header">
-                <input className="nome" placeholder="Nome da Prova" />
+                <input className="nome" placeholder="Nome da Prova" value={nomeProva} onChange={handleNameChange} />
                 <Edit className="material-icons edit" fontSize="small" />
             </header>
             <div className="container prova d-flex">
-                {props.questoes.map((questao, index) => {
+                {questoes.map((questao, index) => {
                     const num = index + 1;
                     return <Question key={num} dados={questao} isEditing={true}>{num}</Question>
                 })}
-                <NewQuestion createNewQuestion={addQuestion} isEditing={true}>{props.questoes.length + 1}</NewQuestion>
+                <NewQuestion createNewQuestion={addQuestion} isEditing={true}>{questoes.length + 1}</NewQuestion>
             </div>
             <button type="button" className="btn btn-primary float-end" onClick={() => salvarProva()}>Salvar</button>
         </div>
