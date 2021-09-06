@@ -1,11 +1,12 @@
 import React, { useReducer, useState, Provider } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import { Exam } from './Pages/Exam';
-import { CreateExam } from './Pages/CreateExam';
+import  {CreateExam}  from './Pages/CreateExam';
 import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
 import { NavBar } from './Components/Layout/NavBar/navBar';
 import Alunos from './Components/Layout/CadastroAluno';
+import Turma from './Pages/Turma/';
 
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
             dispatch={dispatch}/>
         </Route>
         <Route path="/aluno"><Exam user={user}/></Route>
-        <Route path="/"><Login user={user} setUser={setUser}/></Route>
+        <Route exact path="/"><Login user={user} setUser={setUser}/></Route>
+        <Route path="/turma" component={Turma}/>
+        {/*<Route path="/turmaintegrante" component={TurmaIntegrante}/>*/}
+
       </Switch>
     </Router>
   );
