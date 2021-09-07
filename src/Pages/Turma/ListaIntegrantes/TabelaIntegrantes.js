@@ -1,7 +1,7 @@
 import React from 'react';
 import LinhaTurma from './LinhaTurma';
 
-function tabelaIntegrantes(props){
+function TabelaIntegrantes(props){
     if(props != null && props.integrantes != null && props.integrantes.length > 0){
       return(
           <table id="integrantes" border="1">

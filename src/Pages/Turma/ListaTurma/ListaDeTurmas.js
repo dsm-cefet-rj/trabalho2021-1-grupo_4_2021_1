@@ -2,7 +2,7 @@ import React from 'react';
 import CardTurma from '../CardTurma/TurmaCard';
 import './ListaDeTurmas.css';
 
-export default function ListaDeTurmas() {
+export default function ListaDeTurmas(props) {
   return (
     <div>
 
@@ -13,7 +13,7 @@ export default function ListaDeTurmas() {
 
         <CardTurma
           nome="Turma de Programação" dataInicio="20/06"
-          dataFim="18/10"  />
+          dataFim="18/10"  professor="diogo"/> 
 
 
         <CardTurma

@@ -1,3 +1,46 @@
+import React from 'react';
+import IntegranteCard from '../CardIntegrante/IntegranteCard';
+import './ListaIntegrantes.css';
+
+export default function ListaIntegrantes(props) {
+  return (
+    <div>
+
+      <div className="lista">
+        <IntegranteCard
+          professor="diogo"
+          alunos={["claudio","eduardo","leonardo","matheus"]} />
+
+        <IntegranteCard
+          professor="123"
+          alunos={["1","2","3","4"]} />
+
+
+        <IntegranteCard
+         professor="456"
+         alunos={["5","6","7","8"]} />
+
+
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*
 import React, {useEffect} from 'react';
 import {Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
@@ -64,4 +107,4 @@ const useStyles = makeStyles({
   }
   
   export default ListagemIntegrantes;
-  
+  */
