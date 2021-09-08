@@ -16,4 +16,4 @@ function TabelaIntegrantes(props){
     }
 }
 
-export default TabelaIntegrantes;
+export default tabelaIntegrantes;
