@@ -11,11 +11,11 @@ const initialState = turmasAdapter.getInitialState({
 });
 
 export const updateTurmaServer = createAsyncThunk('turma/updateTurmaServer', async (turma, {getState}) => {
-    return await httpPut(`${baseUrl}/turma${turma.id}`, turma, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+    return await httpPut(`${baseUrl}/turmas${turmas.id}`, turma, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 export const fetchTurmaServer = createAsyncThunk('turma/fetchTurmaServer', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/turma`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+    return await httpGet(`${baseUrl}/turmas`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
 export const turmasSlice = createSlice({

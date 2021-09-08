@@ -3,15 +3,27 @@
     {
       "id": 1,
       "username": "leonardo@aluno.com",
-      "password": "123456"
+      "password": "123456",
+      "turmas": [
+        "1",
+        "2"
+      ]
     },
     {
-      "nome": "test",
-      "turma": "123",
-      "tipoconta": "alunos",
-      "username": "test@aluno.com",
+      "id": 2,
+      "username": "tada@aluno.com",
       "password": "123456",
-      "id": 2
+      "turmas": [
+        "2"
+      ]
+    },
+    {
+      "id": 3,
+      "username": "leo@aluno.com",
+      "password": "21421",
+      "turmas": [
+        "3"
+      ]
     }
   ],
   "escola": [
@@ -28,20 +40,19 @@
       "password": "123456"
     },
     {
-      "nome": "Adilson",
-      "turma": "123",
-      "tipoconta": "professores",
-      "username": "adilson@professor.com",
-      "password": "123456",
-      "id": 2
+      "id": 2,
+      "username": "diogo",
+      "password": "123456"
     },
     {
-      "nome": "aloi",
-      "turma": "1",
-      "tipoconta": "professores",
-      "username": "teste2@professor.com",
-      "password": "123456",
-      "id": 3
+      "id": 3,
+      "username": "prof 2",
+      "password": "123456"
+    },
+    {
+      "id": 4,
+      "username": "prof 3",
+      "password": "123456"
     }
   ],
   "turmas": [

@@ -22,7 +22,7 @@ export default function CardTurma(props) {
       professor: {props.professor}
       </div>
       <div>
-      <Link to='/aluno'> <Button>Ver alunos</Button> </Link>
+      <Link to='/turmas/'> <Button>Ver alunos</Button> </Link>
       </div>
 
       <div className="periodo-turma">

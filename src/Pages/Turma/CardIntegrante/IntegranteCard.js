@@ -3,46 +3,51 @@ import './IntegranteCard.css';
 
 
 
-export default function IntegranteCard(props){
+export default function IntegranteCard(props) {
+
+    const mostraAlunos = props.alunos.map((alunos) =>
+        <li>{alunos}</li>)
+
+    return (<>
+
+        <div class="integrantes">
 
 
+           
+                <table className="professor">
+
+                    <thead>
+                        <tr>
+                            <th>Professor</th>
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            {props.professor}
+                        </tr>
+
+                    </tbody>
+                </table>
+           
+          
+                <table className="alunos">
 
 
-    return(<>
-
-        <div className="integrantes">
-
-            <table className="professor">
-
-                <thead>
                     <tr>
-                    <th>Professor</th>
+                        <th>Alunos</th>
                     </tr>
-                </thead>
 
-                <tbody>
+
+
                     <tr>
-                        <td>{props.professor}</td>
+                        <td>{mostraAlunos}</td>
                     </tr>
 
-                </tbody>
-            </table>
-
-            <table className="alunos">
-
-               
-                <tr>
-                <th>Alunos</th>
-                </tr>
+                </table>
+            </div>
         
-
-             
-                <tr>
-                    <td>{props.alunos}</td>   
-                </tr>
-            
-            </table>
-        </div>
 
 
 
