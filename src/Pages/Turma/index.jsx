@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
-import Card from './CardTurma/TurmaCard';
 import React, { useState } from 'react';
 import './index.css';
 import ListaDeTurmas from './ListaTurma/ListaDeTurmas';

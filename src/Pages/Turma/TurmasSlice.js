@@ -10,17 +10,29 @@ const initialState = turmasAdapter.getInitialState({
     /* o array turmas foi removido do state inicial, será criado pelo adapter */
 });
 
-export const updateTurmaServer = createAsyncThunk('turmas/updateTurmaServer', async (turma, {getState}) => {
-    return await httpPut(`${baseUrl}/${turma.id}`, turma, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+export const updateTurmaServer = createAsyncThunk('turma/updateTurmaServer', async (turma, {getState}) => {
+    return await httpPut(`${baseUrl}/turma${turma.id}`, turma, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
+});
+export const fetchTurmaServer = createAsyncThunk('turma/fetchTurmaServer', async (_, {getState}) => {
+    console.log(getState());
+    return await httpGet(`${baseUrl}/turma`, {headers: {Authorization: 'Bearer ' + getState().logins.currentToken}});
 });
 
 export const turmasSlice = createSlice({
     name: 'turmas',
     initialState: initialState,
+    reducers: {
+        updateTurma: (state, action) => updateTurmaReducer(state, action.payload)
+
+    },
     extraReducers: {
- 
+       [fetchTurmaServer.pending]: (state, action) => {state.status = 'loading';},
+       [fetchTurmaServer.fulfilled]: (state, action) => {state.status = 'loaded'; turmasAdapter.setAll(state, action.payload);},
+       [fetchTurmaServer.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
+
        [updateTurmaServer.pending]: (state, action) => {state.status = 'loading'},
-       [updateTurmaServer.fulfilled]: (state, action) => {state.status = 'saved'; turmasAdapter.upsertOne(state, action.payload);},
+       [updateTurmaServer.fulfilled]: (state, action) => {state.status = 'saved'; turmasAdapter.upsertOne(state, action.payload);}
+       
     },
 })
 

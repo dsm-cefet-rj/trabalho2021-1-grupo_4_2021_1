@@ -20,6 +20,25 @@
       "password": "123456"
     }
   ],
+  "turmas": [
+    {
+      "id": 1,
+      "nome": "Turma de programação",
+      "dataInicio": "02/03",
+      "dataFim": "27/06",
+      "professor": "diogo",
+      "alunos":["leonardo","claudio","matheus","eduardo"]
+    },
+    {
+      "id": 2,
+      "nome": "Turma de Cálculo",
+      "dataInicio": "04/03",
+      "dafaFim": "29/06",
+      "alunos": ["claudio","eduardo","leonardo","matheus"]
+
+    }
+
+  ],
   "exames": [
     {
       "0": {
@@ -159,4 +178,6 @@
       "id": 8
     }
   ]
+
+
 }
