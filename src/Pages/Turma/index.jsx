@@ -2,15 +2,18 @@ import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
 import './index.css';
 import ListaDeTurmas from './ListaTurma/ListaDeTurmas';
+import ListaIntegrantes from './ListaIntegrantes/ListaIntegrantes';
 
 
 
 const turma = (props) => {
     return(
 
-        <div>
+        <div className='turma'>
             <ListaDeTurmas />
+            <ListaIntegrantes />
         </div>
+        
 
 
     );

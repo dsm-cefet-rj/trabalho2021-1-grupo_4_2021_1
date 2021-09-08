@@ -1,9 +1,12 @@
 import React from "react";
-import 'IntegranteCard.css';
+import './IntegranteCard.css';
 
 
 
 export default function IntegranteCard(props){
+
+
+
 
     return(<>
 
@@ -35,7 +38,7 @@ export default function IntegranteCard(props){
 
              
                 <tr>
-                    <td>{props.alunos.map(alunos)}</td>   
+                    <td>{props.alunos}</td>   
                 </tr>
             
             </table>
