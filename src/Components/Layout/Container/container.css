@@ -1,4 +1,6 @@
 .ui-container {
-    max-width: 800px;
-    margin: 8% auto;
+    max-width: 960px;
+    margin: 30px auto;
+    padding-top: 4%;
+    
   }

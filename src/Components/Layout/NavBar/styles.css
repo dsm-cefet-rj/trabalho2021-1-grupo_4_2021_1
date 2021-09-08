@@ -1,3 +1,20 @@
 .nav {
     background-color: black;
 }
+.gepeto{
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-right: 20px;
+}
+
+.gepeto:hover {
+    color: white;
+}
+
+.navLogin {
+    text-decoration: none;
+}
+.navLogin-pai {
+    padding-left: 55%;
+}

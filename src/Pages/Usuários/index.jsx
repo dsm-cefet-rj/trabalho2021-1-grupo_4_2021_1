@@ -1,12 +1,12 @@
 import React from 'react';
-import Container from '../../Components/CContainer/container'
-import Cadastro from '../../Components/Layout/CadastroAluno/Form';
+import UIContainer from '../../Components/Layout/Container/container';
+import Cadastro from './CadastroAluno/Formulario';
 
 export function Usuarios(props) {
     return (
-        <Container>
+        <UIContainer>
             <Cadastro />
-        </Container>
+        </UIContainer>
     );
 }
 
