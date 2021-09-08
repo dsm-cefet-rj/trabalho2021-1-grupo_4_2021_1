@@ -23,12 +23,12 @@ export const Login = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(statusAlunos === 'loaded')
+        if(statusAlunos !== 'loaded')
             dispatch(fetchAlunos());
             dispatch(fetchExames());
         
 
-        if(statusProfessores === 'loaded')
+        if(statusProfessores !== 'loaded')
             dispatch(fetchProfessores());
         
     }, [])
@@ -36,6 +36,7 @@ export const Login = (props) => {
 
     const checkLoginType = () => {
         let type, loggedIn, redirectUrl;
+        
         if(user && user.username){
             type = user.username.split('@')[1].split('.com')[0];
         }

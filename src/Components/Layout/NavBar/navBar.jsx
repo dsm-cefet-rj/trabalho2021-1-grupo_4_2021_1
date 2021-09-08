@@ -35,7 +35,7 @@ export function NavBar(props) {
                                     localStorage.removeItem('user');
                                     setUser('');
                                 }}>Sair</NavLink></span>
-                                : <NavLink to="/"className="navLogin"></NavLink>
+                                : <NavLink to="/"className="navLogin">Fazer Login</NavLink>
                             }
                         </Navbar.Text>
                     </Navbar.Collapse>

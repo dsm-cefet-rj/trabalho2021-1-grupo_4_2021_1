@@ -24,13 +24,9 @@ export function Exam() {
 
   const questoes = exame?.questoes ?? [];
 
-  const resposta = {
-    pergunta:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur justo ante, eleifend sit amet neque et, sollicitudin tempus nulla. Nulla sit amet tellus dolor. Inpretium euismod ipsum in tincidunt.',
-    options: ['opção 1', 'opção 2', 'opção 3'],
-    tipo: TipoEnum.objetiva,
-  };
-
+  const handleAnswer = (event) => {
+    console.log(event);
+  }
 
   return (
     <>
@@ -38,7 +34,7 @@ export function Exam() {
       <form action="" className="exam">
           {questoes.map((questao, index) => {
               const num = index + 1;
-              return <Question key={num} dados={questao}>{num}</Question>
+              return <Question key={num} dados={questao} onAnswer={handleAnswer}>{num}</Question>
           })}
         <div id="botao">
           <button type="submit" className="botaoEnviar" onClick={() => { 
