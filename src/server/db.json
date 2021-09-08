@@ -3,7 +3,27 @@
     {
       "id": 1,
       "username": "leonardo@aluno.com",
-      "password": "123456"
+      "password": "123456",
+      "turmas": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": 2,
+      "username": "tada@aluno.com",
+      "password": "123456",
+      "turmas": [
+        "2"
+      ]
+    },
+    {
+      "id": 3,
+      "username": "leo@aluno.com",
+      "password": "21421",
+      "turmas": [
+        "3"
+      ]
     }
   ],
   "escola": [
@@ -18,6 +38,21 @@
       "id": 1,
       "username": "leonardo@professor.com",
       "password": "123456"
+    },
+    {
+      "id": 2,
+      "username": "diogo",
+      "password": "123456"
+    },
+    {
+      "id": 3,
+      "username": "prof 2",
+      "password": "123456"
+    },
+    {
+      "id": 4,
+      "username": "prof 3",
+      "password": "123456"
     }
   ],
   "turmas": [
@@ -27,17 +62,25 @@
       "dataInicio": "02/03",
       "dataFim": "27/06",
       "professor": "diogo",
-      "alunos":["leonardo","claudio","matheus","eduardo"]
+      "alunos": [
+        "leonardo",
+        "claudio",
+        "matheus",
+        "eduardo"
+      ]
     },
     {
       "id": 2,
       "nome": "Turma de Cálculo",
       "dataInicio": "04/03",
       "dafaFim": "29/06",
-      "alunos": ["claudio","eduardo","leonardo","matheus"]
-
+      "alunos": [
+        "claudio",
+        "eduardo",
+        "leonardo",
+        "matheus"
+      ]
     }
-
   ],
   "exames": [
     {
@@ -176,8 +219,27 @@
         }
       ],
       "id": 8
+    },
+    {
+      "questoes": [
+        {
+          "pergunta": "123456",
+          "tipo": 2,
+          "options": []
+        },
+        {
+          "pergunta": "123456",
+          "tipo": 3,
+          "options": []
+        },
+        {
+          "pergunta": "101010",
+          "tipo": 1,
+          "options": []
+        }
+      ],
+      "nomeProva": "testando 123",
+      "id": 9
     }
   ]
-
-
 }

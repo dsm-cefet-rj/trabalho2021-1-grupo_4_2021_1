@@ -55,7 +55,7 @@ const useStyles = makeStyles({
   
     return (
               <>
-                <div id="lbl_titulo_pagina"><Typography variant="h3">Listagem de Alunos</Typography></div><br/>
+                <div id="lbl_titulo_pagina"><Typography variant="h5">Listagem de Alunos</Typography></div><br/>
                 {tabelaAlunos}
               </>
           );

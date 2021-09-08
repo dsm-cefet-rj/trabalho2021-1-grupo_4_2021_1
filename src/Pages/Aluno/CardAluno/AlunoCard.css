@@ -1,17 +1,9 @@
 .card-Aluno {
-    background-color: #165986;
-    color: #fff;
-    margin: 25px 10px 0;
     padding: 5px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #364673;
-    width: 200px;
-    height: 150px;
   }
 
   

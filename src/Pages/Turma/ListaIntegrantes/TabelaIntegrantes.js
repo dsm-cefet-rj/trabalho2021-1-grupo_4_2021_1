@@ -1,12 +1,14 @@
 import React from 'react';
-import LinhaTurma from './LinhaTurma';
+import LinhaIntegrante from './LinhaTurma';
+import ListagemIntegrantes from '../ListagemIntegrantes';
+
 
 function TabelaIntegrantes(props){
-    if(props != null && props.integrantes != null && props.integrantes.length > 0){
+    if(props != null && props.turmas != null && props.turmas.length > 0){
       return(
           <table id="integrantes" border="1">
               <tbody>
-                {props.integrantes.map((turma) => <LinhaTurma key={integrante.id} integrante={integrante} 
+                {props.turmas.map((turmas) => <LinhaIntegrante key={turmas.id} integrante={turmas} 
                 onClickExcluirIntegrante={props.onClickExcluirIntegrante} />)}
               </tbody>
           </table>
@@ -16,4 +18,4 @@ function TabelaIntegrantes(props){
     }
 }
 
-export default tabelaIntegrantes;
+export default TabelaIntegrantes;
