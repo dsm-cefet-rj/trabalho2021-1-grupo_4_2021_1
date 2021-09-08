@@ -10,7 +10,7 @@ export default function IntegranteCard(props){
 
     return(<>
 
-        <div class="integrantes">
+        <div className="integrantes">
 
             <table className="professor">
 
