@@ -27,157 +27,57 @@
       "dataInicio": "02/03",
       "dataFim": "27/06",
       "professor": "diogo",
-      "alunos":["leonardo","claudio","matheus","eduardo"]
+      "alunos": [
+        "leonardo",
+        "claudio",
+        "matheus",
+        "eduardo"
+      ]
     },
     {
       "id": 2,
       "nome": "Turma de Cálculo",
       "dataInicio": "04/03",
       "dafaFim": "29/06",
-      "alunos": ["claudio","eduardo","leonardo","matheus"]
-
+      "alunos": [
+        "claudio",
+        "eduardo",
+        "leonardo",
+        "matheus"
+      ]
     }
-
   ],
   "exames": [
     {
-      "0": {
-        "pergunta": "gfskjdgfkjsgfk",
-        "tipo": 1,
-        "options": []
-      },
-      "1": {
-        "pergunta": "dgajkfskfgksjj",
-        "tipo": 2,
-        "options": [
-          "a",
-          "b",
-          "c"
-        ]
-      },
-      "nomeProva": "Testando 1",
-      "id": 1
-    },
-    {
       "questoes": [
         {
-          "pergunta": "hkasjdgkjgjkagk",
+          "pergunta": "Quem descobriu o Brasil?",
+          "tipo": 2,
+          "options": [
+            "Pedro Alvares Cabral",
+            "Cristovao Colombo",
+            "Americo Vespucio",
+            "Nabucodonosor"
+          ]
+        },
+        {
+          "pergunta": "Quanto é a raiz quadrada de 169?",
           "tipo": 1,
           "options": []
         },
         {
-          "pergunta": "adazfdfss",
-          "tipo": 1,
-          "options": []
-        }
-      ],
-      "id": 2
-    },
-    {
-      "questoes": [
-        {
-          "pergunta": "teste",
-          "tipo": 1,
-          "options": []
-        },
-        {
-          "pergunta": "sjadksagj",
+          "pergunta": "Marque as alternativas corretas sobre o ornitorrinco:",
           "tipo": 3,
           "options": [
-            "a",
-            "v",
-            "c"
+            "É mamífero",
+            "Bota ovos",
+            "Voa",
+            "Vive na água"
           ]
         }
       ],
-      "nomeProva": "Nova prova",
-      "id": 3
-    },
-    {
-      "questoes": [
-        {
-          "pergunta": "aa",
-          "tipo": 1,
-          "options": []
-        }
-      ],
-      "nomeProva": "aa",
-      "id": 4
-    },
-    {
-      "questoes": [
-        {
-          "pergunta": "tevhdkbksb",
-          "tipo": 1,
-          "options": []
-        },
-        {
-          "pergunta": "teste",
-          "tipo": 2,
-          "options": [
-            "aa",
-            "bb",
-            "cc"
-          ]
-        }
-      ],
-      "nomeProva": "Prova 6",
-      "id": 5
-    },
-    {
-      "questoes": [
-        {
-          "pergunta": "aashdkgdhg",
-          "tipo": 1,
-          "options": []
-        },
-        {
-          "pergunta": "sgadfjsdfhskg",
-          "tipo": 2,
-          "options": [
-            "a",
-            "b",
-            "c"
-          ]
-        }
-      ],
-      "nomeProva": "Testando",
-      "id": 6
-    },
-    {
-      "questoes": [
-        {
-          "pergunta": "test1 ",
-          "tipo": 1,
-          "options": []
-        },
-        {
-          "pergunta": "teste 2",
-          "tipo": 2,
-          "options": [
-            "opcao 1",
-            "opca 2"
-          ]
-        }
-      ],
-      "id": 7
-    },
-    {
-      "questoes": [
-        {
-          "pergunta": "sadadadasdasdsa",
-          "tipo": 1,
-          "options": []
-        },
-        {
-          "pergunta": "3132132131",
-          "tipo": 2,
-          "options": []
-        }
-      ],
-      "id": 8
+      "nomeProva": "Prova 1",
+      "id": 1
     }
   ]
-
-
 }

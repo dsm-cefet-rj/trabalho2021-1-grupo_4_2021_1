@@ -18,6 +18,10 @@ textarea.resposta {
   border-radius: 1.25rem;
 }
 
+.card p {
+  font: 500 18px/22px 'Roboto';
+}
+
 #nova-questao {
   background-color: #E5E5E5;
 }
