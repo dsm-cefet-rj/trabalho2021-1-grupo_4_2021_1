@@ -17,13 +17,21 @@
     color: black;
 }
 
-.cadastro-form input {
+.cadastro-form input, .formSelect {
     border: 1px solid #aaa;
     border-radius: 8px;
     background-color: #fff;
     height: 36px;
     padding: 0 10px;
     margin-bottom: 15px;
+}
+
+.cadastro-especial input{
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    background-color: #fff;
+    height: 36px;
+    padding: 0 10px;
 }
 
 .botao {

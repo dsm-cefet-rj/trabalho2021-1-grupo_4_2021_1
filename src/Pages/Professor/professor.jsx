@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { api } from '../../Components/services/api';
 import UIContainer from '../../Components/Layout/Container/container';
+import { Button } from 'react-bootstrap';
 
 
 function createData(name, calories, fat, carbs, protein) {
@@ -54,6 +55,7 @@ export default function ProfessorTable() {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Button href="/cadastro" variant="outline-primary" style={{marginTop:"2%"}}>Voltar</Button>
         </UIContainer>
     );
 

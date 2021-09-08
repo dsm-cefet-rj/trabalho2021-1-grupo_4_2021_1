@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { Usuarios} from './Pages/Usuários/index';
 import ProfessorTable from './Pages/Professor/professor';
 import AlunosTable from './Pages/Aluno/alunos';
-
+import Turma from './Pages/Turma/';
 
 
 function App() {

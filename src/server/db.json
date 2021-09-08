@@ -4,10 +4,12 @@
       "id": 1,
       "username": "leonardo@aluno.com",
       "password": "123456"
-    },
+    }
+  ],
+  "escola": [
     {
-      "id": 2,
-      "username": "matheus@aluno.com",
+      "id": 1,
+      "username": "escola@escola.com",
       "password": "123456"
     }
   ],
@@ -16,14 +18,6 @@
       "id": 1,
       "username": "leonardo@professor.com",
       "password": "123456"
-    },
-    {
-      "nome": "rodolfo",
-      "turma": "2271",
-      "tipoconta": "professores",
-      "username": "rodolfo@professor.com",
-      "password": "123",
-      "id": 2
     }
   ],
   "exames": [
@@ -165,5 +159,4 @@
       "id": 8
     }
   ]
-
 }
