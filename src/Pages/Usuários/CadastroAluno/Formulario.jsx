@@ -36,13 +36,12 @@ const Cadastro = () => {
 
     function onSubmit(event) {
         event.preventDefault();
-
-        if (tipoDeConta(values.tipoconta) == "alunos") {
+    
+        
+        if (tipoDeConta(values.tipoconta) == "aluno") {
             values.username = values.username + "@alunos.com"
-            console.log("Entrou no Alunos")
-        } else if (tipoDeConta(values.tipoconta) == "professores") {
-            values.username = values.username + "@professores.com"
-            console.log("Entrou no Professores")
+        } else if (tipoDeConta(values.tipoconta) == "professor") {
+            values.username = values.username + "@professores.com"                                                   
         }
 
         try {

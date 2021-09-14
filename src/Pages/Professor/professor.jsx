@@ -10,11 +10,6 @@ import { api } from '../../Components/services/api';
 import UIContainer from '../../Components/Layout/Container/container';
 import { Button } from 'react-bootstrap';
 
-
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
-
 const rows = [
     
 ];
