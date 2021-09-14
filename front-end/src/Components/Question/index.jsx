@@ -1,8 +1,8 @@
 import { TipoEnum } from '../../shared/enums';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.css';
 
-export function Question({ dados, isEditing, children }) {
+export function Question({ dados, isEditing, onAnswer, children }) {
 
   const [answer, setAnswer] = useState([]);
 
@@ -17,13 +17,18 @@ export function Question({ dados, isEditing, children }) {
     }
     else if(dados.tipo === TipoEnum.objetiva) {
       if(event.target.checked)
-        setAnswer([event.target.name]);
+        setAnswer([event.target.id]);
     }
     else {
       setAnswer([event.target.value]);
     }
-    onAnswer(answer);
   }
+
+  useEffect(() => {
+    if(!isEditing){
+      onAnswer(answer, children);
+    }
+  }, [answer])
   
   function selectTypeOfAnswer(dados, isEditing) {
     switch (dados.tipo) {
@@ -33,7 +38,7 @@ export function Question({ dados, isEditing, children }) {
           <>
             <textarea rows="3" className={`resposta${temResposta ? '-certa' : ''}`} 
               readOnly={isEditing} disabled={isEditing}
-              onChange={ handleAnswerQuestion}
+              onChange={handleAnswerQuestion}
               defaultValue={dados.resposta}>
             </textarea>
           </>
@@ -48,7 +53,7 @@ export function Question({ dados, isEditing, children }) {
                     const res = indice === dados.resposta;
                     return (
                       <label key={indice} className={res ? 'resposta-certa' : ''}>
-                        <input type="radio" name={indice} defaultChecked={res} onChange={ handleAnswerQuestion} />
+                        <input type="radio" name='optradio' id={indice} defaultChecked={res} onChange={handleAnswerQuestion} />
                         {valor}
                       </label>
                     );
@@ -67,7 +72,7 @@ export function Question({ dados, isEditing, children }) {
                     const res = indice === dados.resposta;
                     return (
                       <label key={indice} className={res ? 'resposta-certa' : ''}>
-                        <input type="checkbox" name={indice} defaultValue="" defaultChecked={res} onChange={ handleAnswerQuestion} /> {valor}
+                        <input type="checkbox" name={indice} defaultValue="" defaultChecked={res} onChange={handleAnswerQuestion} /> {valor}
                       </label>
                     )
                   })

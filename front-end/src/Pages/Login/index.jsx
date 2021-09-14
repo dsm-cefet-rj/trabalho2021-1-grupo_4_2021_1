@@ -55,6 +55,7 @@ export const Login = (props) => {
 
         if(loggedIn) {
             localStorage.setItem('user', user.username);
+            localStorage.setItem('userId', loggedIn.id);
             history.push(redirectUrl);
         }
     }
