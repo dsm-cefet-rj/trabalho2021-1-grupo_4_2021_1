@@ -1,11 +1,11 @@
 import { string, object, number, setLocale, ref } from 'yup';
-import { ptForm} from 'yup-locale-pt';
+import { ptForm } from 'yup-locale-pt';
 
 setLocale(ptForm)
 
 const mailMsg = "Digite o e-mail."
 
-const 
+const senhaMsg = "Digite a senha";
 
 export let ProfessoresSchema = object().shape(
 

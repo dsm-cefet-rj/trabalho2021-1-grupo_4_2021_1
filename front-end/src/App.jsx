@@ -2,7 +2,6 @@ import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import { Exam } from './Pages/Exam';
 import  {CreateExam}  from './Pages/CreateExam';
-import { ExamResult } from './Pages/ExamResult';
 import { Login } from './Pages/Login';
 import { NavBar } from './Components/Layout/NavBar/navBar';
 import { store } from './shared/store';
@@ -24,7 +23,6 @@ function App() {
         <Switch>
           <Route path="/cadastro/professores"><ProfessorTable/></Route>
           <Route path="/cadastro/alunos"><AlunosTable/></Route>
-          <Route path="/resultado"><ExamResult/></Route>
           <Route path="/cadastro"><Usuarios user={user}/></Route>
           <Route path="/prova/criar">
             <CreateExam />

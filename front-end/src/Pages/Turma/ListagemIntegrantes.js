@@ -1,58 +1,10 @@
-import React from 'react';
-import IntegranteCard from '../CardIntegrante/IntegranteCard';
-import './ListaIntegrantes.css';
-
-export default function ListaIntegrantes(props) {
-  return (
-    <div>
-
-      <div className="lista">
-        <IntegranteCard
-          professor="diogo"
-          alunos={["claudio","eduardo","leonardo","matheus"]}
-          />
-
-        <IntegranteCard
-          professor="prof 2"
-          alunos={["aluno 1","aluno 2","aluno 3","aluno 4"]} 
-          // alunos={props.turmas.alunos.map()}
-          />
-
-
-        <IntegranteCard
-         professor="prof 3"
-         alunos={["aluno 5","aluno 6","aluno 7","aluno 8"]}
-         />
-
-
-      </div>
-    </div>
-  )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /*
 import React, {useEffect} from 'react';
 import {Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
-import {deleteIntegranteServer, fetchIntegrantes, selectAllIntegrantes} from './IntegrantesSlice'
+import {deleteTurmaServer as deleteIntegranteServer, fetchTurmas as fetchIntegrantes, selectAllTurmas as selectAllIntegrantes} from './IntegrantesSlice'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import TabelaIntegrantes from './TabelaIntegrantes';
 
 const useStyles = makeStyles({
@@ -78,7 +30,7 @@ const useStyles = makeStyles({
   
     const classes = useStyles();
   
-    function handleClickExcluirTurma(id){
+    function handleClickExcluirIntegrante(id){
           dispatch(deleteIntegranteServer(id));
     }
   
@@ -92,23 +44,22 @@ const useStyles = makeStyles({
     
     let tabelaIntegrantes;
     if(status === 'loaded' || status === 'saved' || status === 'deleted'){
-      tabelaIntegrantes = <TabelaIntegrantes integrantes={integrantes} onClickExcluirIntegrante={handleClickExcluiIntegrante} />;
+      tabelaIntegrantes = <TabelaIntegrantes integrantes={integrantes} onClickExcluirIntegrante={handleClickExcluirIntegrante} />;
     }else if(status === 'loading'){
       tabelaIntegrantes = <div id="integrantes">Carregando os integrantes...</div>;
     }else if(status === 'not_loaded'){
-      tabelaIntegrantes = '';
+      tabelaIntegrantes= '';
     }else{
-      tabelaIntegrantes = <div id="integrantes">Error: {error}</div>;
+      tabelaIntegrantes= <div id="integrantes">Error: {error}</div>;
     }
   
     return (
               <>
                 <div id="lbl_titulo_pagina"><Typography variant="h3">Listagem de Integrantes</Typography></div><br/>
-                <Button className={classes.root} id="Novo Integrante" name="btn_novo_integrante" to="/integrantes/novo" component={Link}>Novo Integrante</Button><br/><br/>
                 {tabelaIntegrantes}
               </>
           );
   }
   
   export default ListagemIntegrantes;
-  */
+  
