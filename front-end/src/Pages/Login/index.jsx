@@ -49,11 +49,6 @@ export const Login = (props) => {
             loggedIn = login(user.username, user.password, loginProfessor);
             redirectUrl = '/prova/criar';
         }
-        /*
-        else if (type == "escola") {
-            loggedIn = login(user.username, user.password, loginEscola);
-            redirectUrl = '/cadastro'; // trocar o cadastro de "não tenho conta" para escola@escola.com
-        }*/
         else {
             alert('Usuário não encontrado');
         }

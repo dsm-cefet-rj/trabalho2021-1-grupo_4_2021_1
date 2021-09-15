@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    text-align: center;
 }
 
 
@@ -11,10 +11,14 @@
     width:100%;
     border: 1px solid black;
     border-collapse: collapse;
+    width: 120px;
+    margin-top: 20px;
 }
  
 .alunos{
     border: 1px solid black;
+    width: 120px;
+    margin-bottom: 20px;
 }
  
 
