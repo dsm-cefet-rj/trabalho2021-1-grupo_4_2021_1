@@ -22,6 +22,7 @@
   "homepage": "https://github.com/dsm-cefet-rj/trabalho2021-1-grupo_4_2021_1#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^6.0.5",
     "nodemon": "^2.0.12"
   }
 }
