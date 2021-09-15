@@ -36,8 +36,8 @@ router.route('/')
 })
 
 router.route('/:id')
-.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
-.get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
+.options((req, res) => { res.sendStatus(200); })
+.get((req, res, next) => {
   let err;
   res.setHeader('Content-Type', 'application/json');
   try{
@@ -59,7 +59,7 @@ router.route('/:id')
   }  
 
 })
-.delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
+.delete((req, res, next) => {
   
   Turmas.findByIdAndRemove(req.params.id)
     .then((resp) => {
@@ -71,7 +71,7 @@ router.route('/:id')
 
 
 })
-.put(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
+.put((req, res, next) => {
   
   Turmas.findByIdAndUpdate(req.params.id, {
     $set: req.body
