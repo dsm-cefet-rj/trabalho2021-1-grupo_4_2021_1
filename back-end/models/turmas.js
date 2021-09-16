@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { route } = require('../exam');
 const Schema = mongoose.Schema;
 
 
@@ -21,4 +22,4 @@ const turmaSchema = new Schema({
     }
 })
 
-export default turmaSchema;
+module.exports = turmaSchema;
