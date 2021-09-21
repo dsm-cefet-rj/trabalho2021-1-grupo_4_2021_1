@@ -7,9 +7,9 @@ import { NavBar } from './Components/Layout/NavBar/navBar';
 import { store } from './shared/store';
 import { Provider } from 'react-redux';
 import { Usuarios} from './Pages/Usuários/index';
-import ProfessorTable from './Pages/Professor/professor';
-import AlunosTable from './Pages/Aluno/alunos';
 import Turma from './Pages/Turma/';
+import ListaAluno from './Pages/Usuários/ListaUsuarios/ListaAlunos';
+import ListaProfessores from './Pages/Usuários/ListaUsuarios/ListaProfessores';
 
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
       <Router history={history}>
         <NavBar />
         <Switch>
-          <Route path="/cadastro/professores"><ProfessorTable/></Route>
-          <Route path="/cadastro/alunos"><AlunosTable/></Route>
+          <Route path="/cadastro/professores"><ListaProfessores/></Route>
+          <Route path="/cadastro/alunos"><ListaAluno/></Route>
           <Route path="/cadastro"><Usuarios user={user}/></Route>
           <Route path="/prova/criar">
             <CreateExam />

@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react';
-import {Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
 import {deleteAlunoServer, fetchAlunos, selectAllAlunos} from './AlunosSlice'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import TabelaAlunos from './TabelaAlunos';
 
 const useStyles = makeStyles({
