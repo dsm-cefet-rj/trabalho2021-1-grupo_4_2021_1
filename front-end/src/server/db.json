@@ -32,6 +32,22 @@
       "username": "123@alunos.com",
       "password": "123",
       "id": 4
+    },
+    {
+      "nome": "aluno123",
+      "turma": "1",
+      "tipoconta": "alunos",
+      "username": "aluno123@alunos.com",
+      "password": "aluno123",
+      "id": 5
+    },
+    {
+      "nome": "1234",
+      "turma": "10",
+      "tipoconta": "alunos",
+      "username": "1234@alunos.com",
+      "password": "1234",
+      "id": 6
     }
   ],
   "escola": [
@@ -49,7 +65,7 @@
     },
     {
       "nome": "12333",
-      "turma": "12333",
+      "turma": "1",
       "tipoconta": "professores",
       "username": "12333@professores.com",
       "password": "123",
@@ -59,6 +75,8 @@
   "turmas": [
     {
       "id": 1,
+      "username": "turma@turma.com",
+      "password": "123456",
       "nome": "Turma de programação",
       "dataInicio": "02/03",
       "dataFim": "27/06",
@@ -72,15 +90,25 @@
     },
     {
       "id": 2,
+      "username": "turma123@turma.com",
+      "password": "12345",
       "nome": "Turma de Cálculo",
       "dataInicio": "04/03",
       "dafaFim": "29/06",
       "alunos": [
-        "claudio",
-        "eduardo",
-        "leonardo",
-        "matheus"
+        "claudio1",
+        "eduardo2",
+        "leonardo3",
+        "matheus4"
       ]
+    },
+    {
+      "nome": "turma de ingles",
+      "turma": "3",
+      "tipoconta": "turmas",
+      "username": "turmaDeIngles@turmas.com",
+      "password": "turmadeingles",
+      "id": 3
     }
   ],
   "exames": [

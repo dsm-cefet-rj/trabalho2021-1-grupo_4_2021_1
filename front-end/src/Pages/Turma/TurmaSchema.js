@@ -6,8 +6,11 @@ setLocale(ptForm)
 
 export let turmaSchema = object().shape(
     {
-        id: string(),
+        id: int(),
         nome: string().required().max(30),
-        integrantes: string().required()
+        alunos: string().required(),
+        professores: string().required(),
+        dataInicio: string().required(),
+        dataFim: string().required()
     }
 )

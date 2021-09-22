@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { Usuarios} from './Pages/Usuários/index';
 import ProfessorTable from './Pages/Professor/professor';
 import AlunosTable from './Pages/Aluno/alunos';
+import TurmasTable from './Pages/Turma/turmas';
 import Turma from './Pages/Turma/';
 
 
@@ -23,6 +24,7 @@ function App() {
         <Switch>
           <Route path="/cadastro/professores"><ProfessorTable/></Route>
           <Route path="/cadastro/alunos"><AlunosTable/></Route>
+          <Route path="/cadastro/turmas"><TurmasTable/></Route>
           <Route path="/cadastro"><Usuarios user={user}/></Route>
           <Route path="/prova/criar">
             <CreateExam />

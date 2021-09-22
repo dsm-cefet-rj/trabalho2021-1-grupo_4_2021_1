@@ -19,8 +19,10 @@ function tipoDeConta(e) {
     if(e == "professores"){
         return "professor"
     }
-    else{
+    else if(e =="aluno"){
         return "aluno"
+    }else{
+        return "turma"
     }
 }
 
@@ -42,6 +44,8 @@ const Cadastro = () => {
             values.username = values.username + "@alunos.com"
         } else if (tipoDeConta(values.tipoconta) == "professor") {
             values.username = values.username + "@professores.com"                                                   
+        }else if (tipoDeConta(values.tipoconta) == "turma"){
+            values.username = values.username + "@turmas.com"
         }
 
         try {
@@ -83,6 +87,7 @@ const Cadastro = () => {
                             <option value="disable" selected disabled>Selecione</option>
                             <option value="alunos">Aluno</option>
                             <option value="professores">Professor</option>
+                            <option value="turmas">Turma</option>
                         </Form.Select>
                         <label htmlFor="alunoUsername">Email</label>
                     </div>
@@ -109,6 +114,8 @@ const Cadastro = () => {
                         <NavLink to="/cadastro/professores" className="btn btn-outline-primary">Professores</NavLink>
                         
                         <NavLink to="/cadastro/alunos" className="btn btn-outline-primary">Alunos</NavLink>
+
+                        <NavLink to="/cadastro/turmas" className="btn btn-outline-primary">Turmas</NavLink>
                         
                         <button type="submit" className="btn btn-primary me-md-2">Salvar</button>
                     </div>

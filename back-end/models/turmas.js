@@ -8,6 +8,10 @@ const turmaSchema = new Schema({
         type: String,
         required: true,
     },
+    professor: {
+        type: String,
+        required: true,
+    },
     alunos:{
         type: String,
         required: true,

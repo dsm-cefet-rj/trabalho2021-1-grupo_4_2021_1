@@ -5,6 +5,7 @@ import './IntegranteCard.css';
 
 export default function IntegranteCard(props) {
 
+
     const mostraAlunos = props.alunos.map((alunos) =>
         <li>{alunos}</li>)
 

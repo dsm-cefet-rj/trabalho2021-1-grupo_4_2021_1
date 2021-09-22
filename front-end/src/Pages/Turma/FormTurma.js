@@ -57,10 +57,28 @@ export default function FormTurma(props){
             </label>
             <br/>
             <label>
-                Sigla:
-                <input type="text" name="sigla" id="sigla"  defaultValue={turmaOnLoad.sigla} ref={register} />
-                &nbsp;<span id="sigla_err_msg">{errors.sigla?.message}</span>
+                Professor:
+                <input type="text" name="professor" id="professor"  defaultValue={turmaOnLoad.professor} ref={register} />
+                &nbsp;<span id="sigla_err_msg">{errors.professor?.message}</span>
             </label>
+            <label>
+                Alunos:
+                <input type="text" name="alunos" id="alunos"  defaultValue={turmaOnLoad.nome} ref={register} />
+                &nbsp;<span id="nome_err_msg">{errors.alunos?.message}</span>
+            </label>
+            <br/>
+            <label>
+                DataInicio:
+                <input type="text" name="dataInicio" id="dataInicio"  defaultValue={turmaOnLoad.dataInicio} ref={register} />
+                &nbsp;<span id="nome_err_msg">{errors.dataInicio?.message}</span>
+            </label>
+            <br/>
+            <label>
+                DataFim:
+                <input type="text" name="dataFim" id="dataFim"  defaultValue={turmaOnLoad.dataFim} ref={register} />
+                &nbsp;<span id="nome_err_msg">{errors.dataFim?.message}</span>
+            </label>
+            <br/>
             <br/>
             <br/>   
             <Button type="submit" id="Salvar" name="btn_salvar_turma" variant="contained" color="primary">Salvar</Button>

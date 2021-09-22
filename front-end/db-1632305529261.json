@@ -1,0 +1,152 @@
+{
+  "alunos": [
+    {
+      "id": 1,
+      "username": "leonardo@aluno.com",
+      "password": "123456",
+      "turmas": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": 2,
+      "username": "tada@aluno.com",
+      "password": "123456",
+      "turmas": [
+        "2"
+      ]
+    },
+    {
+      "id": 3,
+      "username": "leo@aluno.com",
+      "password": "21421",
+      "turmas": [
+        "3"
+      ]
+    },
+    {
+      "nome": "123",
+      "turma": "123",
+      "tipoconta": "alunos",
+      "username": "123@alunos.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "nome": "aluno123",
+      "turma": "1",
+      "tipoconta": "alunos",
+      "username": "aluno123@alunos.com",
+      "password": "aluno123",
+      "id": 5
+    },
+    {
+      "nome": "1234",
+      "turma": "10",
+      "tipoconta": "alunos",
+      "username": "1234@alunos.com",
+      "password": "1234",
+      "id": 6
+    }
+  ],
+  "escola": [
+    {
+      "id": 1,
+      "username": "escola@escola.com",
+      "password": "123456"
+    }
+  ],
+  "professores": [
+    {
+      "id": 1,
+      "username": "leonardo@professor.com",
+      "password": "123456"
+    },
+    {
+      "nome": "12333",
+      "turma": "12333",
+      "tipoconta": "professores",
+      "username": "12333@professores.com",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "turmas": [
+    {
+      "id": 1,
+      "nome": "Turma de programação",
+      "dataInicio": "02/03",
+      "dataFim": "27/06",
+      "professor": "diogo",
+      "alunos": [
+        "leonardo",
+        "claudio",
+        "matheus",
+        "eduardo"
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Turma de Cálculo",
+      "dataInicio": "04/03",
+      "dafaFim": "29/06",
+      "alunos": [
+        "claudio",
+        "eduardo",
+        "leonardo",
+        "matheus"
+      ]
+    }
+  ],
+  "exames": [
+    {
+      "questoes": [
+        {
+          "pergunta": "Quem descobriu o Brasil?",
+          "tipo": 2,
+          "options": [
+            "Pedro Alvares Cabral",
+            "Cristovao Colombo",
+            "Americo Vespucio",
+            "Nabucodonosor"
+          ]
+        },
+        {
+          "pergunta": "Quanto é a raiz quadrada de 169?",
+          "tipo": 1,
+          "options": []
+        },
+        {
+          "pergunta": "Marque as alternativas corretas sobre o ornitorrinco:",
+          "tipo": 3,
+          "options": [
+            "É mamífero",
+            "Bota ovos",
+            "Voa",
+            "Vive na água"
+          ]
+        }
+      ],
+      "nomeProva": "Prova 1",
+      "id": 1,
+      "respostas": [
+        {
+          "1": {
+            "1": [
+              "0"
+            ],
+            "2": [
+              "13"
+            ],
+            "3": [
+              "0",
+              "2",
+              "3"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
