@@ -4,6 +4,9 @@ const router = express.Router();
 let turmas = 
 {
     "id": "1",
+    "username": "turmaDeProgramação@turma.com",
+    "password": "123456",
+    "tipoconta": "turma",
     "nome": "Turma de Programação",
     "dataInicio": "06/03",
     "dataFim": "27/06",
