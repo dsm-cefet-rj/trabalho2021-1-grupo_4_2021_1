@@ -1,9 +1,6 @@
 import React from 'react';
-import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
 import {Link } from "react-router-dom";
 import AlunoCard from "./CardAluno/AlunoCard";
-import {baseUrl} from '../baseUrl'
 
 function LinhaAluno(props){
     if(props != null && props.alunos != null && props.alunos.id != null){

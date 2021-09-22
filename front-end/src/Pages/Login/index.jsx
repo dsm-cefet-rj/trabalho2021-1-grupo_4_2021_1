@@ -7,8 +7,10 @@ import { login } from './login.service';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAlunos, selectAllAlunos } from '../Aluno/AlunosSlice';
 import { fetchProfessores, selectAllProfessores } from '../Professor/ProfessoresSlice';
-import { useEffect } from 'react';
 import { fetchExames, selectExamesIds } from '../ExamesSlice';
+import { fetchEscola, selectAllEscola } from '../EscolaSlice';
+import { useEffect } from 'react';
+
 
 export const Login = (props) => {
     const history = useHistory();
@@ -40,7 +42,7 @@ export const Login = (props) => {
         if(user && user.username){
             type = user.username.split('@')[1].split('.com')[0];
         }
-
+        
         if (type == "aluno") {
             loggedIn = login(user.username, user.password, loginAluno);
             redirectUrl = `prova/${Math.max(...examesIds)}`;

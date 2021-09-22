@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { TipoEnum } from '../../shared/enums';
 import { Question } from '../../Components/Question';
 import { NewQuestion } from '../../Components/NewQuestion';
 import './styles.css';

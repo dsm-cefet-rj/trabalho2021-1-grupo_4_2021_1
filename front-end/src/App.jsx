@@ -11,6 +11,8 @@ import ProfessorTable from './Pages/Professor/professor';
 import AlunosTable from './Pages/Aluno/alunos';
 import TurmasTable from './Pages/Turma/turmas';
 import Turma from './Pages/Turma/';
+import ListaAluno from './Pages/Usuários/ListaUsuarios/ListaAlunos';
+import ListaProfessores from './Pages/Usuários/ListaUsuarios/ListaProfessores';
 
 
 function App() {
