@@ -32,7 +32,7 @@ let Alunos = [
 router.post('/', (req, res) => {
     if (req.body) {
         let id = Alunos.push({ ...req.body, id: Alunos.length + 1 });
-        res.status(201).json({ id, msg: 'Aluno criada com sucesso!' });
+        res.status(201).json({ id, msg: 'Aluno criado com sucesso!' });
     }
     else {
         res.status(400).send('Requisição mal-formulada');
@@ -44,19 +44,19 @@ router.get('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    if (req.body && req.params.id) {
-        const tIndex = Alunos.findIndex(t => t.id == req.params.id);
-        if (tIndex) {
-            Alunos.splice(tIndex, 1, req.body);
-            res.status(200).send('Turma alterada com sucesso');
-        }
-        else {
-            res.status(400).send('Id não encontrado');
-        }
-    }
-    else {
-        res.status(400).send('Requisição mal-formulada');
-    }
-});
+  //TARUIMSSADISGRAÇA
+})
+
+router.delete('/:id', (req, res) => {
+  const {id}= req.params;
+  const deleted = Alunos.filter(Alunos => Alunos.id ===  id);
+  if(deleted){
+    Alunos = Alunos.filter(Alunos => Alunos.id != id);
+    res.status(200).json({message: "Aluno apagado!"})
+  }
+  else{
+    res.status(404).json({message: "Requisição mal-formulada"})
+  }
+})
 
 module.exports = router;

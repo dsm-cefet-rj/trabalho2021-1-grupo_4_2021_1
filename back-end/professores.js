@@ -47,4 +47,16 @@ router.put('/:id', (req, res) => {
     }
 });
 
+router.delete('/:id', (req, res) => {
+    const {id}= req.params;
+    const deleted = professores.filter(professores => professores.id ===  id);
+    if(deleted){
+        professores = professores.filter(professores => professores.id != id);
+      res.status(200).json({message: "Professor apagado!"})
+    }
+    else{
+      res.status(404).json({message: "Requisição mal-formulada"})
+    }
+  })
+
 module.exports = router;
