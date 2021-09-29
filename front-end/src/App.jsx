@@ -10,6 +10,7 @@ import { Usuarios} from './Pages/Usuários/index';
 import Turma from './Pages/Turma/';
 import ListaAluno from './Pages/Usuários/ListaUsuarios/ListaAlunos';
 import ListaProfessores from './Pages/Usuários/ListaUsuarios/ListaProfessores';
+import ListaTurmas from './Pages/Usuários/ListaUsuarios/ListaTrumas';
 import { EditAlunos } from './Pages/Usuários/EditaUsuario/Alunos/EditaAluno';
 
 
@@ -25,7 +26,7 @@ function App() {
           <Route path="/cadastro/professores"><ListaProfessores/></Route>
           <Route path="/cadastro/alunos"><ListaAluno/></Route>
           <Route path="/alunos/editar"><EditAlunos/></Route>
-          <Route path="/cadastro/turmas"><ListaProfessores/></Route>
+          <Route path="/cadastro/turmas"><ListaTurmas/></Route>
           <Route path="/cadastro"><Usuarios user={user}/></Route>
           <Route path="/prova/criar">
             <CreateExam />
