@@ -18,17 +18,6 @@ const initialValue = {
     password: ' ',
 }
 
-function tipoDeConta(e) {
-    if (e == "professores") {
-        return "professor"
-    }
-    else if(e =="alunos"){
-        return "aluno"
-    }else{
-        return "turma"
-    }
-}
-
 const Cadastro = () => {
 
     const dispatch = useDispatch();
