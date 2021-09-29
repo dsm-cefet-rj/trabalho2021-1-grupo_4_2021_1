@@ -1,4 +1,5 @@
 const express = require('express');
+const Prova = require('./models/exam');
 const router = express.Router();
 
 let provas = [
@@ -54,28 +55,49 @@ let provas = [
 
 router.post('/', (req, res) => {
     if(req.body){
-        let id = provas.push({...req.body, id: provas.length + 1});
-        res.status(201).json({id, msg: 'Prova criada com sucesso'});
+      Prova.create(req.body).then(value => {
+        res.status(201).json({_id: value._id, msg: 'Prova criada com sucesso'});
+      }).catch(err => console.log(err));
     }
     else{
         res.status(400).send('Requisição mal-formulada');
     }
 });
 
-router.get('/', (req, res) => {
-    res.status(200).send(provas);
+router.get('/', async (req, res) => {
+  try {
+    const provas = await Prova.find();
+    res.status(200).json(provas);
+  }
+  catch(err) {
+    res.status(500).send(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  if(req.params.id) {
+    try {
+      const prova = await Prova.findById(req.params.id);
+      res.status(200).json(prova);
+    }
+    catch(err) {
+      res.status(500).json("Id inválido")
+    }
+  }
+  else {
+    res.status(400).send('Id não encontrado');
+  }
 });
 
 router.put('/:id', (req, res) => {
    if(req.body && req.params.id) {
-       const pIndex = provas.findIndex(p => p.id == req.params.id);
-       if(pIndex) {
-           provas.splice(pIndex, 1, req.body);
-           res.status(200).send('Prova alterada com sucesso');
-       }
-       else {
-           res.status(400).send('Id não encontrado');
-       }
+      Prova.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+      }, { new: true })
+        .then(res => {
+          res.status(200).json({msg: 'Prova alterada com sucesso', res});
+        })
+        .catch(err => res.status(400).json({msg: 'Id não encontrado', erro: err}))
    }
    else {
        res.status(400).send('Requisição mal-formulada');

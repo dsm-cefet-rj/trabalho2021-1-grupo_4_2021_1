@@ -18,6 +18,17 @@ const initialValue = {
     password: ' ',
 }
 
+function tipoDeConta(e) {
+    if (e == "professores") {
+        return "professor"
+    }
+    else if(e =="alunos"){
+        return "aluno"
+    }else{
+        return "turma"
+    }
+}
+
 const Cadastro = () => {
 
     const dispatch = useDispatch();
@@ -49,7 +60,8 @@ const Cadastro = () => {
     function onSubmit(event) {
         event.preventDefault();
 
-        if (tipoDeConta(values.tipoconta) == "aluno") {
+
+        if (tipoDeConta(values.tipoconta) == "alunos") {
             values.username = values.username + "@alunos.com";
             insertAluno(values)
         } else if (tipoDeConta(values.tipoconta) == "professor") {
@@ -125,7 +137,6 @@ const Cadastro = () => {
 
         </div>
     )
-
 
 };
 
