@@ -1,9 +1,21 @@
 const mongoose = require('mongoose');
-const { route } = require('../exam');
 const Schema = mongoose.Schema;
+const normalize = require('normalize-mongoose');
 
 
 const turmaSchema = new Schema({
+    id: {
+        type: String,
+        required: true,
+    },
+    username: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
     nome: {
         type: String,
         required: true,
@@ -26,4 +38,9 @@ const turmaSchema = new Schema({
     }
 })
 
-module.exports = turmaSchema;
+turmaSchema.plugin(normalize);
+
+var Turmas = mongoose.model('Turma', turmaSchema);
+
+
+module.exports = Turmas;

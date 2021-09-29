@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProfessorServer } from '../../Professor/ProfessoresSlice';
 import { addAlunoServer } from '../../Aluno/AlunosSlice'
+import { addTurmaServer } from '../../Turma/TurmasSlice';
 import { tipoDeConta } from '../Helper/TipodeConta';
 
 import { NavLink } from 'react-router-dom';
@@ -32,6 +33,11 @@ const Cadastro = () => {
             alert("Professor criado!");
         })
     }
+    async function insertTurma(turma) {
+        dispatch(addTurmaServer(turma)).then((res) => {
+            alert("Turma criada!");
+        })
+    }
 
     const [values, setValues] = useState(initialValue);
 
@@ -47,9 +53,13 @@ const Cadastro = () => {
             values.username = values.username + "@alunos.com";
             insertAluno(values)
         } else if (tipoDeConta(values.tipoconta) == "professor") {
-            values.username = values.username + "@professores.com"
+            values.username = values.username + "@professores.com";
             insertProfessor(values)
+        } else if (tipoDeConta(values.tipoconta) == "turma"){
+            values.username = values.username + "@turmas.com";
+            insertTurma(values);
         }
+        
 
         document.getElementById("formulario").reset();
     }
