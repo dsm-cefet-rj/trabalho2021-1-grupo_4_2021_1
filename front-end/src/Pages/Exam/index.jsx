@@ -4,12 +4,12 @@ import { TipoEnum } from '../../shared/enums';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import './styles.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchExames, selectAllExames, selectExamesById, updateExameServer } from '../ExamesSlice';
+import { fetchExamesById, selectExamesById, updateExameServer } from '../ExamesSlice';
 import { useEffect, useState } from 'react';
 import { store } from '../../shared/store';
 
 export function Exam() {
-  const id = parseInt(useParams().id);
+  const id = useParams().id;
   const history = useHistory();
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState({});
@@ -18,10 +18,10 @@ export function Exam() {
   const exame = useSelector((state) => selectExamesById(state, id));
   
   useEffect(() => {
-    if(status !== 'loaded'){
-      dispatch(fetchExames());
+    if(status === 'not_loaded' || status === 'failed' || status === 'saved'){
+      dispatch(fetchExamesById(id));
     }
-  });
+  }, [status]);
 
   const questoes = exame?.questoes ?? [];
 
@@ -46,7 +46,7 @@ export function Exam() {
 
   return (
     <>
-      <Header nome={exame?.nomeProva}/>
+      <Header nome={exame?.nome}/>
       <form action="" className="exam">
           {questoes.map((questao, index) => {
               const num = index + 1;
