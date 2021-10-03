@@ -1,62 +1,50 @@
 const express = require('express');
+const Alunos = require('./models/alunos')
 const router = express.Router();
 
-let Alunos = [
-    {
-        "id": 1,
-        "username": "leonardo@aluno.com",
-        "password": "123456",
-        "turmas": [
-          "1",
-          "2"
-        ]
-      },
-      {
-        "id": 2,
-        "username": "tada@aluno.com",
-        "password": "123456",
-        "turmas": [
-          "2"
-        ]
-      },
-      {
-        "id": 3,
-        "username": "leo@aluno.com",
-        "password": "21421",
-        "turmas": [
-          "3"
-        ]
-      }
-]
-
-router.post('/', (req, res) => {
-    if (req.body) {
-        let id = Alunos.push({ ...req.body, id: Alunos.length + 1 });
-        res.status(201).json({ id, msg: 'Aluno criado com sucesso!' });
-    }
-    else {
-        res.status(400).send('Requisição mal-formulada');
-    }
+router.post('/', (req, res, next) => {
+  Alunos.create(req.body)
+    .then((aluno) => {
+      console.log('Aluno criado ', aluno);
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(aluno);
+    }, (err) => next(err))
+      .catch((err) => next(err));
 });
 
-router.get('/', (req, res) => {
-    res.status(200).send(Alunos);
+router.get('/', async (req, res) => {
+  try {
+    const alunos = await Alunos.find();
+    res.status(200).json(alunos);
+  }
+  catch(err) {
+    res.status(500).send(err);
+  }
 });
+router.delete('/:id', async (req, res, next) => {
+  Alunos.findByIdAndRemove(req.params.id)
+  .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(resp);
+  }, (err) => next(err))
+  .catch((err) => next(err));
+})
 
 router.put('/:id', (req, res) => {
-  //TARUIMSSADISGRAÇA
-})
-
-router.delete('/:id', (req, res) => {
-  const {id}= req.params;
-  const deleted = Alunos.filter(Alunos => Alunos.id ===  id);
-  if(deleted){
-    Alunos = Alunos.filter(Alunos => Alunos.id != id);
-    res.status(200).json({message: "Aluno apagado!"})
+  if(req.body && req.params.id) {
+    Alunos.findByIdAndUpdate(req.params.id, {
+      $set: req.body
+    }, { new: true })
+      .then(res => {
+        res.status(200).json({msg: 'Aluno alterado com sucesso', res});
+      })
+      .catch(err => res.status(400).json({msg: 'Id não encontrado', erro: err}))
+ }
+ else {
+     res.status(400).send('Requisição mal-formulada');
   }
-  else{
-    res.status(404).json({message: "Requisição mal-formulada"})
-  }
-})
+});
 
 module.exports = router;

@@ -44,23 +44,23 @@ const Cadastro = () => {
     function onChange(event) {
         const { name, value } = event.target;
         setValues({ ...values, [name]: value })
+        
     }
 
     function onSubmit(event) {
         event.preventDefault();
 
-
-        if (tipoDeConta(values.tipoconta) == "alunos") {
+        if (tipoDeConta(values.tipoconta) == "aluno") {
             values.username = values.username + "@alunos.com";
-            insertAluno(values)
+            insertAluno(values);
         } else if (tipoDeConta(values.tipoconta) == "professor") {
             values.username = values.username + "@professores.com";
-            insertProfessor(values)
+            console.log(values);
+            insertProfessor(values);
         } else if (tipoDeConta(values.tipoconta) == "turma"){
             values.username = values.username + "@turmas.com";
             insertTurma(values);
         }
-        
 
         document.getElementById("formulario").reset();
     }
@@ -75,7 +75,7 @@ const Cadastro = () => {
                 <form id="formulario" onSubmit={onSubmit}>
                     <div className="cadastro-form">
                         <label htmlFor="aluno">Nome</label>
-                        <input id="aluno" name="nome" type="text" onChange={onChange} placeholder="Seu nome..." required />
+                        <input autoComplete="off" id="aluno" name="nome" type="text" onChange={onChange} placeholder="Seu nome..." required />
                     </div>
 
                     <div className="cadastro-form">
