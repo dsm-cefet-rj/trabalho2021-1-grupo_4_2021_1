@@ -8,9 +8,10 @@ const port = process.env.PORT || 3001;
 
 const exames = require('./exam');
 const turmas = require('./turma')
-const professores = require('./professores');
-const alunos = require('./alunos');
-const escola = require('./escola')
+const professores = require('./professores.js');
+const alunos = require('./alunos.js');
+const escola = require('./escola.js')
+const respostas = require('./respostas')
 
 const connect = mongoose.connect(process.env.DB_URL);
 
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
       '/professores',
       '/alunos',
       '/escola',
+      '/respostas'
     ]
   });
 })
@@ -38,6 +40,8 @@ app.use('/turmas', turmas);
 app.use('/professores', professores);
 app.use('/alunos', alunos)
 app.use('/escola', escola);
+app.use('/questoes', escola);
+app.use('/respostas', respostas);
 
 app.listen(port, () => {
   console.log(`Rodando em http://localhost:${port}`);
