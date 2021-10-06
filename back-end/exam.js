@@ -74,6 +74,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const provas = await Prova.findById(req.params.id);
+    res.status(200).json(provas);
+  }
+  catch(err) {
+    res.status(500).send(err);
+  }
+});
+
 router.put('/:id', (req, res) => {
    if(req.body && req.params.id) {
       Prova.findByIdAndUpdate(req.params.id, {
