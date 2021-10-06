@@ -18,7 +18,7 @@ export function Exam() {
   const exame = useSelector((state) => selectExamesById(state, id));
   
   useEffect(() => {
-    if(status === 'not_loaded' || status === 'failed' || status === 'saved'){
+    if(status === 'not_loaded' || status === 'saved'){
       dispatch(fetchExamesById(id));
     }
   }, [status]);

@@ -1,4 +1,12 @@
-export const login = (username, password, users) => {
-    const login = users.find(u => u.username === username);
-    if(login.password === password) return login;
+const axios = require('axios');
+
+export const login = async (username, password) => {
+    return axios({
+        method: 'post',
+        url: 'http://localhost:3001/login',
+        data: {
+            username,
+            password
+        }
+    });
 }

@@ -19,47 +19,37 @@ export const Login = (props) => {
         password: ''
     });
 
-    const [statusAlunos, loginAluno] = useSelector((state) => [state.alunos.status, selectAllAlunos(state)]);
-    const [statusProfessores, loginProfessor] = useSelector((state) => [state.professores.status, selectAllProfessores(state)]);
-    const examesIds = useSelector(selectExamesIds);
+    const [statusExames, examesIds] = useSelector(selectExamesIds);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if(statusAlunos !== 'loaded')
-            dispatch(fetchAlunos());
-            dispatch(fetchExames());
-        
 
-        if(statusProfessores !== 'loaded')
-            dispatch(fetchProfessores());
-        
-    }, [])
-
-
-    const checkLoginType = () => {
-        let type, loggedIn, redirectUrl;
+    const checkLoginType = async () => {
+        let type, redirectUrl;
         
         if(user && user.username){
             type = user.username.split('@')[1].split('.com')[0];
         }
         
-        if (type == "aluno") {
-            loggedIn = login(user.username, user.password, loginAluno);
-            redirectUrl = `prova/${Math.max(...examesIds)}`;
-        }
-        else if (type == "professor") {
-            loggedIn = login(user.username, user.password, loginProfessor);
-            redirectUrl = '/prova/criar';
-        }
-        else {
-            alert('Usuário não encontrado');
-        }
+        await login(user.username, user.password).then(res => {
+            const loggedIn = res.data.token;
+            if (type == "alunos") {
+                redirectUrl = 'prova/6154e1b968a7b479d49ce17a';
+            }
+            else if (type == "professor") {
+                redirectUrl = '/prova/criar';
+            }
+            else {
+                alert('Usuário não encontrado');
+            }
+    
+            if(loggedIn) {
+                // cookies.set('token', loggedIn);
+                localStorage.setItem('token', loggedIn);
+                // localStorage.setItem('userId', loggedIn.id);
+                history.push(redirectUrl);
+            }
+        })
 
-        if(loggedIn) {
-            localStorage.setItem('user', user.username);
-            localStorage.setItem('userId', loggedIn.id);
-            history.push(redirectUrl);
-        }
     }
 
     function handleInputChange(e) {

@@ -1,6 +1,6 @@
 import {createSlice, createAsyncThunk, createEntityAdapter} from '@reduxjs/toolkit'
 import {httpDelete, httpGet, httpPut, httpPost} from './utils'
-import {baseUrl} from './baseUrl'
+import {baseUrl} from './baseUrl';
 
 const examesAdapter = createEntityAdapter({
     selectId: (model) => model._id
@@ -14,24 +14,24 @@ const initialState = examesAdapter.getInitialState({
 
 export const fetchExames = createAsyncThunk('exames/fetchExames', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/exames`, {});
+    return await httpGet(`${baseUrl}/exames`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const fetchExamesById = createAsyncThunk('exames/fetchExamesById', async (id, {getState}) => {
-    return await httpGet(`${baseUrl}/exames/${id}`, {});
+    return await httpGet(`${baseUrl}/exames/${id}`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const deleteExameServer = createAsyncThunk('exames/deleteExameServer', async (idExame, {getState}) => {
-    await httpDelete(`${baseUrl}/exames/${idExame}`, {});
+    await httpDelete(`${baseUrl}/exames/${idExame}`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
     return idExame;
 });
 
 export const addExameServer = createAsyncThunk('exames/addExameServer', async (exame, {getState}) => {
-    return await httpPost(`${baseUrl}/exames`, exame, {});
+    return await httpPost(`${baseUrl}/exames`, exame, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const updateExameServer = createAsyncThunk('exames/updateExameServer', async (exame, {getState}) => {
-    return await httpPut(`${baseUrl}/exames/${exame.id}`, exame, {});
+    return await httpPut(`${baseUrl}/exames/${exame.id}`, exame, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const examesSlice = createSlice({
