@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const { route } = require('../exam');
 const Schema = mongoose.Schema;
+const normalize = require('normalize-mongoose');
 
 const respostasSchema = new Schema({
     prova: {
-        type: int,
+        type: [],
         required: true,
     },
     pergunta: {
-        type: int,
+        type: [],
         required: true,
     },
     resposta: {
@@ -17,6 +17,9 @@ const respostasSchema = new Schema({
     }
 })
 
-var Respostas = mongoose.model('Respostas', respostasSchema);
+respostasSchema.plugin(normalize);
+
+var Respostas= mongoose.model('Respostas', respostasSchema);
+
 
 module.exports = Respostas;
