@@ -12,7 +12,7 @@ const initialState = escolaAdapter.getInitialState({
 
 export const fetchEscola = createAsyncThunk('escola/fetchEscola', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/escola`, {});
+    return await httpGet(`${baseUrl}/escola`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 
 export const escolaSlice = createSlice({

@@ -13,21 +13,21 @@ const initialState = turmasAdapter.getInitialState({
 
 export const fetchTurmas = createAsyncThunk('turmas/fetchTurmas', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/turmas`, {headers: {}});
+    return await httpGet(`${baseUrl}/turmas`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 export const deleteTurmaServer = createAsyncThunk('turmas/deleteTurmaServer', async (idTurma, {getState}) => {
     console.log(getState());
-    await httpDelete(`${baseUrl}/turmas/${idTurma}`, {headers: {}});
+    await httpDelete(`${baseUrl}/turmas/${idTurma}`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
     return idTurma;
 });
 
 export const addTurmaServer = createAsyncThunk('turmas/addTurmaServer', async (turma, {getState}) => {
     console.log(getState());
-    return await httpPost(`${baseUrl}/turmas`, turma, {headers: {}});
+    return await httpPost(`${baseUrl}/turmas`, turma, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 export const updateTurmaServer = createAsyncThunk('turma/updateTurmaServer', async (turma, {getState}) => {
     console.log(getState());
-    return await httpPut(`${baseUrl}/turmas${turma.id}`, turma, {headers: {}});
+    return await httpPut(`${baseUrl}/turmas${turma.id}`, turma, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 
 export const turmasSlice = createSlice({

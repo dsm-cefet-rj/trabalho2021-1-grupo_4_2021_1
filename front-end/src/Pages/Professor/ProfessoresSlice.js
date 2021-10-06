@@ -12,20 +12,20 @@ const initialState = professoresAdapter.getInitialState({
 
 export const fetchProfessores = createAsyncThunk('professores/fetchProfessores', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/professores`);
+    return await httpGet(`${baseUrl}/professores`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 
 export const deleteProfessorServer = createAsyncThunk('professores/deleteProfessorServer', async (idProfessor, {getState}) => {
-    await httpDelete(`${baseUrl}/professores/${idProfessor}`);
+    await httpDelete(`${baseUrl}/professores/${idProfessor}`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
     return idProfessor;
 });
 
 export const addProfessorServer = createAsyncThunk('professores/addProfessorServer', async (professor, {getState}) => {
-    return await httpPost(`${baseUrl}/professores`, professor);
+    return await httpPost(`${baseUrl}/professores`, professor, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 
 export const updateProfessorServer = createAsyncThunk('professores/updateProfessorServer', async (professor, {getState}) => {
-    return await httpPut(`${baseUrl}/professores/${professor.id}`, professor);
+    return await httpPut(`${baseUrl}/professores/${professor.id}`, professor, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 
 export const professoresSlice = createSlice({

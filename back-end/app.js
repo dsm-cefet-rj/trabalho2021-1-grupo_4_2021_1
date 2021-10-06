@@ -81,12 +81,12 @@ app.use(cookieParser())
 
 app.use('/', authenticate);
 app.use('/exames', verifyJWT, exames);
-app.use('/turmas', turmas);
-app.use('/professores', professores);
-app.use('/alunos', alunos)
-app.use('/escola', escola);
-app.use('/questoes', escola);
-app.use('/respostas', respostas);
+app.use('/turmas', verifyJWT, turmas);
+app.use('/professores', verifyJWT, professores);
+app.use('/alunos', verifyJWT, alunos)
+app.use('/escola', verifyJWT, escola);
+app.use('/questoes', verifyJWT, escola);
+app.use('/respostas', verifyJWT, respostas);
 
 app.listen(port, () => {
   console.log(`Rodando em http://localhost:${port}`);
