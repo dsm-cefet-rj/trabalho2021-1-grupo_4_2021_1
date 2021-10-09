@@ -84,6 +84,7 @@ app.use('/exames', verifyJWT, exames);
 app.use('/turmas', verifyJWT, turmas);
 app.use('/professores', verifyJWT, professores);
 app.use('/alunos', verifyJWT, alunos)
+// essa entidade não vai ser implementada por enquanto
 app.use('/escola', verifyJWT, escola);
 app.use('/questoes', verifyJWT, escola);
 app.use('/respostas', verifyJWT, respostas);
