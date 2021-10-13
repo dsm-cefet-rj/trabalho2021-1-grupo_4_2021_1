@@ -4,8 +4,11 @@ const Professores = require('./models/professores');
 const Turmas = require('./models/turmas');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const cors = require('./cors');
 
-router.post('/login', async (req, res, next) => {
+router
+.route('/login').options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.post('/login', cors.corsWithOptions, async (req, res, next) => {
 
     const user = req.body.username;
     const pass = req.body.password;
@@ -32,10 +35,8 @@ router.post('/login', async (req, res, next) => {
         console.error('You are not authenticated!');     
         res.status(401).send('You are not authenticated!')
     }
-});
-
-
-router.post('/logout', (req, res) => {
+})
+.post('/logout', cors.corsWithOptions, (req, res) => {
     res.json({ auth: false, token: null });
 })
 

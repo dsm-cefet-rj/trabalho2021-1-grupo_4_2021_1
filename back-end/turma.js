@@ -2,11 +2,11 @@
 const express = require('express');
 const router = express.Router();
 const Turmas = require('./models/turmas');
-
-
+const cors = require('./cors');
 
 router.route('/')
-.get(async (req, res, next)=> {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, async (req, res, next) => {
 
     let err;
     res.setHeader('Content-type', 'application/json');
@@ -21,7 +21,7 @@ router.route('/')
         res.json(err);
     }
 })
-.post((req, res, next) => {
+.post(cors.corsWithOptions, (req, res, next) => {
 
     Turmas.create(req.body)
     .then((turma) => {
@@ -44,8 +44,7 @@ router.route('/')
 
 
 })
-
-.delete((req, res, next) => {
+.delete(cors.corsWithOptions, (req, res, next) => {
     Turmas.findByIdAndRemove(req.params.id)
     .then((resp) => {
         res.statusCode = 200;
@@ -54,8 +53,7 @@ router.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-
-.put((req, res, next) => {  
+.put(cors.corsWithOptions, (req, res, next) => {
     Turmas.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, { new: true })

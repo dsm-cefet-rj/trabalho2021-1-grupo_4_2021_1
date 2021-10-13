@@ -1,8 +1,10 @@
 const express = require('express');
 const Alunos = require('./models/alunos')
 const router = express.Router();
+const cors = require('./cors');
 
-router.post('/', (req, res, next) => {
+router.route('/')
+.post(cors.corsWithOptions, (req, res, next) => {
   Alunos.create(req.body)
     .then((aluno) => {
       console.log('Aluno criado ', aluno);
@@ -11,9 +13,9 @@ router.post('/', (req, res, next) => {
       res.json(aluno);
     }, (err) => next(err))
       .catch((err) => next(err));
-});
+})
 
-router.get('/', async (req, res) => {
+.get(cors.corsWithOptions, async (req, res) => {
   try {
     const alunos = await Alunos.find();
     res.status(200).json(alunos);
@@ -22,7 +24,9 @@ router.get('/', async (req, res) => {
     res.status(500).send(err);
   }
 });
-router.delete('/:id', async (req, res, next) => {
+
+router.route('/:id')
+.delete(cors.corsWithOptions, async (req, res, next) => {
   Alunos.findByIdAndRemove(req.params.id)
   .then((resp) => {
       res.statusCode = 200;
@@ -32,7 +36,7 @@ router.delete('/:id', async (req, res, next) => {
   .catch((err) => next(err));
 })
 
-router.put('/:id', (req, res) => {
+.put(cors.corsWithOptions, (req, res) => {
   if(req.body && req.params.id) {
     Alunos.findByIdAndUpdate(req.params.id, {
       $set: req.body
