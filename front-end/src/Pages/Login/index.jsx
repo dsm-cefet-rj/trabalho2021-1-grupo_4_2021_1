@@ -51,10 +51,11 @@ export const Login = (props) => {
                 // cookies.set('token', loggedIn);
                 localStorage.setItem('token', loggedIn);
                 localStorage.setItem('usuario', user.username);
-                location.reload();
 
                 // localStorage.setItem('userId', loggedIn.id);
                 history.push(redirectUrl);
+                location.reload();
+                alert('Você foi logado com sucesso!');
             }
         })
 

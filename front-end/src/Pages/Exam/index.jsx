@@ -9,8 +9,20 @@ import { useEffect, useState } from 'react';
 import { store } from '../../shared/store';
 
 export function Exam() {
-  const id = useParams().id;
+
   const history = useHistory();
+
+  const [type, setType] = useState();
+  useEffect(() => setType(localStorage.getItem('tipo')), [type])
+
+  if(type != 'alunos'){
+    
+    history.push('/')
+    alert('VOCÊ NÃO TEM ACESSO!!');
+  }
+
+  const id = useParams().id;
+ 
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState({});
 
