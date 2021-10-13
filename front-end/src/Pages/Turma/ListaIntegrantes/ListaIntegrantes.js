@@ -45,7 +45,7 @@ export default function ListaIntegrantes() {
 
 
     var professores = fetchProfessores();
-    var aluno = fetchAlunos();
+    var alunos = fetchAlunos();
 
   return (
     <div>

@@ -38,7 +38,11 @@ export const Login = (props) => {
             else if (type == "professor") {
                 redirectUrl = '/prova/criar';
             }
-            else {
+            else if  (type == "turma"){
+                redirectUrl = '/cadastro/turmas'
+
+            }
+            else{
                 alert('Usuário não encontrado');
             }
     

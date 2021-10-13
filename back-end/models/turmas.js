@@ -20,21 +20,25 @@ const turmaSchema = new Schema({
         type: String,
         required: true,
     },
-    professor: {
+    tipoconta: {
         type: String,
         required: true,
     },
-    alunos:{
+    professor: {
         type: String,
-        required: true,
+        required: false,
+    },
+    alunos:{
+        type: Array,
+        required: false,
     },
     dataInicio:{
         type: String,
-        required: true,
+        required: false,
     },
     dataFim:{
         type: String,
-        required: true,
+        required: false,
     }
 })
 
