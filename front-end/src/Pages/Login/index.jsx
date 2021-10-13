@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { MdEmail, MdLock} from "react-icons/md";
+import { NavBar } from '../../Components/Layout/NavBar/navBar';
 import './login.css';
 import { login } from './login.service';
 import { useSelector, useDispatch } from "react-redux";
@@ -35,10 +36,10 @@ export const Login = (props) => {
             if (type == "alunos") {
                 redirectUrl = 'prova/6154e1b968a7b479d49ce17a';
             }
-            else if (type == "professor") {
+            else if (type == "professores") {
                 redirectUrl = '/prova/criar';
             }
-            else if  (type == "turma"){
+            else if  (type == "turmas"){
                 redirectUrl = '/cadastro/turmas'
 
             }
@@ -49,6 +50,9 @@ export const Login = (props) => {
             if(loggedIn) {
                 // cookies.set('token', loggedIn);
                 localStorage.setItem('token', loggedIn);
+                localStorage.setItem('usuario', user.username);
+                location.reload();
+
                 // localStorage.setItem('userId', loggedIn.id);
                 history.push(redirectUrl);
             }

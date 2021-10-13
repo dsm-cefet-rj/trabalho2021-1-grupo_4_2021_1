@@ -18,11 +18,11 @@ const turmaSchema = new Schema({
     },
     nome: {
         type: String,
-        required: true,
+        required: false,
     },
     tipoconta: {
         type: String,
-        required: true,
+        required: false,
     },
     professor: {
         type: String,

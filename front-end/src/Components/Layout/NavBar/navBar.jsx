@@ -2,14 +2,16 @@ import React, { useState } from "react"
 import { Navbar, Nav, Container} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import '../../../assets/images/logo.png'
 
-export function NavBar(props) {
+
+export function NavBar() {
     const [user, setUser] = useState();
 
-    useEffect(() => setUser(localStorage.getItem('user')), [user])
+    useEffect(() => setUser(localStorage.getItem('usuario')), [user])
 
     return (
         <div>
@@ -32,7 +34,8 @@ export function NavBar(props) {
                             {
                                 user
                                 ? <span className="navLogin" >Logado como: {user} <NavLink exact to="/" onClick={() => {
-                                    localStorage.removeItem('user');
+                                    localStorage.removeItem('token');
+                                    localStorage.removeItem('usuario');
                                     setUser('');
                                 }}>Sair</NavLink></span>
                                 : <NavLink to="/"className="navLogin">Fazer Login</NavLink>
