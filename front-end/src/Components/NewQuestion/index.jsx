@@ -13,10 +13,10 @@ export function NewQuestion({ isEditing, children, createNewQuestion }) {
   useEffect(() => setType(localStorage.getItem('tipo')), [type])
   let history = useHistory()  
 
-  if(type!= 'professores'){
+   if( type == 'alunos' ||  type == 'turmas'){
     history.push('/');
     alert('VOCÊ NÃO TEM ACESSO!!!');
-  }
+  } 
 
   const handleEnunciadoChange = (event) => {
     setEnunciadoNovo(event.target.value);

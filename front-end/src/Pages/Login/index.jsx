@@ -51,7 +51,7 @@ export const Login = (props) => {
                 // cookies.set('token', loggedIn);
                 localStorage.setItem('token', loggedIn);
                 localStorage.setItem('usuario', user.username);
-
+                localStorage.setItem('tipo', user.username.split('@')[1].split('.com')[0]);
                 // localStorage.setItem('userId', loggedIn.id);
                 history.push(redirectUrl);
                 location.reload();

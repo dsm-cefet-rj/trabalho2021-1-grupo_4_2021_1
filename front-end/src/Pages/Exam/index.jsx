@@ -15,22 +15,22 @@ export function Exam() {
   const [type, setType] = useState();
   useEffect(() => setType(localStorage.getItem('tipo')), [type])
 
-  if(type != 'alunos'){
-    
+   if (type =='professores' || type == 'turmas') {
+
     history.push('/')
     alert('VOCÊ NÃO TEM ACESSO!!');
-  }
+  } 
 
   const id = useParams().id;
- 
+
   const dispatch = useDispatch();
   const [answers, setAnswers] = useState({});
 
   const status = useSelector((state) => state.exames.status);
   const exame = useSelector((state) => selectExamesById(state, id));
-  
+
   useEffect(() => {
-    if(status === 'not_loaded' || status === 'saved'){
+    if (status === 'not_loaded' || status === 'saved') {
       dispatch(fetchExamesById(id));
     }
   }, [status]);
@@ -38,32 +38,32 @@ export function Exam() {
   const questoes = exame?.questoes ?? [];
 
   const handleAnswer = (res, num) => {
-    const newAnswer = {...answers};
+    const newAnswer = { ...answers };
     newAnswer[num] = res;
     setAnswers(newAnswer);
   }
 
   const enviarProva = (event) => {
-    event.preventDefault(); 
-    if(confirm('Tem certeza que deseja enviar a prova?')){
+    event.preventDefault();
+    if (confirm('Tem certeza que deseja enviar a prova?')) {
       // history.push('/resultado');
       const userId = localStorage.getItem('userId');
-      const exameComRespostas = {...exame, 'respostas': []};
+      const exameComRespostas = { ...exame, 'respostas': [] };
       const respostaUser = {};
       respostaUser[userId] = answers;
-      exameComRespostas['respostas'].push(respostaUser); 
+      exameComRespostas['respostas'].push(respostaUser);
       dispatch(updateExameServer(exameComRespostas));
     }
   }
 
   return (
     <>
-      <Header nome={exame?.nome}/>
+      <Header nome={exame?.nome} />
       <form action="" className="exam">
-          {questoes.map((questao, index) => {
-              const num = index + 1;
-              return <Question key={num} dados={questao} onAnswer={handleAnswer}>{num}</Question>
-          })}
+        {questoes.map((questao, index) => {
+          const num = index + 1;
+          return <Question key={num} dados={questao} onAnswer={handleAnswer}>{num}</Question>
+        })}
         <div id="botao">
           <button type="submit" className="botaoEnviar" onClick={enviarProva}>
             Enviar

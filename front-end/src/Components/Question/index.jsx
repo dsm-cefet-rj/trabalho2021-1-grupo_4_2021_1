@@ -9,7 +9,7 @@ export function Question({ dados, isEditing, onAnswer, children }) {
   useEffect(() => setType(localStorage.getItem('tipo')), [type])
   let history = useHistory()  
 
-  if(type!= 'alunos'){
+  if(type == 'professores' || type =='turmas'){
     history.push('/');
     alert('VOCÊ NÃO TEM ACESSO!!!');
   }

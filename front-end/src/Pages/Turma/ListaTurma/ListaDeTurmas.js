@@ -11,7 +11,7 @@ export default function ListaDeTurmas(props) {
   useEffect(() => setType(localStorage.getItem('tipo')), [type])
   let history = useHistory()  
 
-  if(type!= 'turmas'){
+  if(type === 'alunos' || type ==='professores'){
     history.push('/');
     alert('VOCÊ NÃO TEM ACESSO!!!');
   }
