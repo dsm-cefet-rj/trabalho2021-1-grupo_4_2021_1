@@ -34,7 +34,7 @@ export default function TurmasTable() {
                 <Table className ="table-hover">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="right">Turma</TableCell>
+                            <TableCell align="right">Turama</TableCell>
                             <TableCell align="center">Username</TableCell>
                         </TableRow>
                     </TableHead>

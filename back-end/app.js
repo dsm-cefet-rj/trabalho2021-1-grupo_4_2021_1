@@ -18,6 +18,7 @@ const Alunos = require('./models/alunos');
 const Professores = require('./models/professores');
 const Turmas = require('./models/turmas');
 const { verifyJWT } = require('./auth.service');
+const root = require('./root.js')
 
 const connect = mongoose.connect(process.env.DB_URL);
 
@@ -85,9 +86,10 @@ app.use('/turmas', verifyJWT, turmas);
 app.use('/professores', verifyJWT, professores);
 app.use('/alunos', verifyJWT, alunos)
 // essa entidade não vai ser implementada por enquanto
-app.use('/escola', verifyJWT, escola);
+//app.use('/escola', verifyJWT, escola);
 app.use('/questoes', verifyJWT, escola);
 app.use('/respostas', verifyJWT, respostas);
+app.use('/escola', verifyJWT, root);
 
 app.listen(port, () => {
   console.log(`Rodando em http://localhost:${port}`);

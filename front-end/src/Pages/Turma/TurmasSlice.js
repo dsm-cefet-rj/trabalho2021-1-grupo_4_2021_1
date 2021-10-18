@@ -27,7 +27,7 @@ export const addTurmaServer = createAsyncThunk('turmas/addTurmaServer', async (t
 });
 export const updateTurmaServer = createAsyncThunk('turma/updateTurmaServer', async (turma, {getState}) => {
     console.log(getState());
-    return await httpPut(`${baseUrl}/turmas${turma.id}`, turma, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpPut(`${baseUrl}/turmas/${turma.id}`, turma, {headers: {Authorization: `${localStorage.getItem('token')}` }});
 });
 
 export const turmasSlice = createSlice({

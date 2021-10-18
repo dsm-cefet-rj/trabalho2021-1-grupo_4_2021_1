@@ -21,12 +21,12 @@ function ListaAluno(props) {
     if (status === 'not_loaded') {
       dispatch(fetchAlunos())
     } else if (status === 'failed') {
-      setTimeout(()=>dispatch(fetchAlunos()), 5000);
+      setTimeout(() => dispatch(fetchAlunos()), 5000);
     }
   }, [status, dispatch])
 
 
-  function updateAluno(aluno){
+  function updateAluno(aluno) {
     const alunoUptade = {
       nome: "",
       turma: "",
@@ -37,18 +37,18 @@ function ListaAluno(props) {
     let allUsername = document.querySelectorAll(".username");
     let allNome = document.querySelectorAll(".nome");
     let i = 0;
-    while(i != allTurmas.length){
-      if(allTurmas[i].innerHTML == aluno.turma){
+    while (i != allTurmas.length) {
+      if (allTurmas[i].innerHTML == aluno.turma) {
         alunoUptade.turma = allTurmas[i].innerHTML;
         alunoUptade.username = allUsername[i].innerHTML;
         alunoUptade.nome = allNome[i].innerHTML;
         break
       }
-      else{
+      else {
         i++
       }
     }
-    let alunoChanged = Object.assign({},aluno, alunoUptade);
+    let alunoChanged = Object.assign({}, aluno, alunoUptade);
     dispatch(updateAlunoServer(alunoChanged));
     location.reload();
   }
@@ -76,7 +76,7 @@ function ListaAluno(props) {
           <Button href="/cadastro" variant="outline-primary" style={{ marginTop: "2%" }}>Voltar</Button>
         </UIContainer>
       </>
-    ) 
+    )
   }
   else if (alunos.length != 0) {
     return (
@@ -97,11 +97,11 @@ function ListaAluno(props) {
               <TableBody>
                 {alunos.map((row) => (
                   <TableRow key={row.id} >
-                    <TableCell className="turma" align="center" contentEditable="true">
+                    <TableCell className="turma" align="center" contentEditable="false">
                       {row.turma}
                     </TableCell>
                     <TableCell className="username" align="center" contentEditable="true" >
-                      {row.username} 
+                      {row.username}
                     </TableCell>
                     <TableCell className="nome" align="center" contentEditable="true" >
                       {row.nome}
@@ -110,7 +110,7 @@ function ListaAluno(props) {
                       {row.tipoconta}
                     </TableCell>
                     <TableCell align="right"><Button variant="danger" type="submit" onClick={() => deletaAluno(row.id)}>Apagar</Button></TableCell>
-                    <TableCell><Button variant="primary" type="submit" onClick={() => updateAluno(row) }>Alterar</Button></TableCell>
+                    <TableCell><Button variant="primary" type="submit" onClick={() => updateAluno(row)}>Alterar</Button></TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -121,7 +121,7 @@ function ListaAluno(props) {
       </>
     )
   }
-  else if(alunos.length == 0) {
+  else if (alunos.length == 0) {
     return (
       <>
         <UIContainer>
@@ -142,7 +142,7 @@ function ListaAluno(props) {
       </>
     )
   }
-  else{
+  else {
     return (
       <>
         <UIContainer>

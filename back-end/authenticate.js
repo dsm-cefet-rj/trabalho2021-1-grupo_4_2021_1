@@ -4,6 +4,7 @@ const Professores = require('./models/professores');
 const Turmas = require('./models/turmas');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const Escola = require('./models/root');
 
 router.post('/login', async (req, res, next) => {
 
@@ -20,8 +21,11 @@ router.post('/login', async (req, res, next) => {
         case 'turmas.com':
             usuario = await Turmas.findOne({'username': user});
             break;
+        case 'escola.com':
+            usuario = await Escola.findOne({'username': user});
+            break;
     }
-    
+    console.log(usuario);
     if (usuario && usuario.username == user && usuario.password == pass) {
         const token = jwt.sign({ usuario }, process.env.SECRET, {
             expiresIn: 30000 

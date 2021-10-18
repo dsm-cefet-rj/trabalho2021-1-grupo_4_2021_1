@@ -5,11 +5,7 @@ import { MdEmail, MdLock} from "react-icons/md";
 import './login.css';
 import { login } from './login.service';
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAlunos, selectAllAlunos } from '../Aluno/AlunosSlice';
-import { fetchProfessores, selectAllProfessores } from '../Professor/ProfessoresSlice';
-import { fetchExames, selectExamesIds } from '../ExamesSlice';
-import { fetchEscola, selectAllEscola } from '../EscolaSlice';
-import { useEffect } from 'react';
+import { selectExamesIds } from '../ExamesSlice';
 
 
 export const Login = (props) => {
@@ -37,6 +33,9 @@ export const Login = (props) => {
             }
             else if (type == "professor") {
                 redirectUrl = '/prova/criar';
+            }
+            else if (type == "escola") {
+                redirectUrl = '/cadastro';
             }
             else {
                 alert('Usuário não encontrado');
@@ -82,8 +81,6 @@ export const Login = (props) => {
                             Login
                         </Button>
                     </form>
-
-                    <h6><a href="/cadastro">Não tenho conta</a></h6>
                 </div>
             </div>
         </>

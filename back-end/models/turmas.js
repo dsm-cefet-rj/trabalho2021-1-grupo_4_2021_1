@@ -4,10 +4,6 @@ const normalize = require('normalize-mongoose');
 
 
 const turmaSchema = new Schema({
-    id: {
-        type: String,
-        required: true,
-    },
     username: {
         type: String,
         required: true,
@@ -22,19 +18,16 @@ const turmaSchema = new Schema({
     },
     professor: {
         type: String,
-        required: true,
     },
     alunos:{
         type: String,
-        required: true,
     },
     dataInicio:{
         type: String,
-        required: true,
+
     },
     dataFim:{
         type: String,
-        required: true,
     }
 })
 

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import UIContainer from '../../../Components/Layout/Container/container';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { fetchTurmas, selectAllTurmas, deleteTurmaServer } from '../../Turma/TurmasSlice'
+import { fetchTurmas, selectAllTurmas, deleteTurmaServer, updateTurmaServer } from '../../Turma/TurmasSlice'
 import Button from 'react-bootstrap/Button';
 
 
@@ -24,9 +24,32 @@ function ListaTurmas(props) {
     }
   }, [status, dispatch])
 
-  async function deletaTurma(id) {
-    dispatch(deleteTurmaServer(id)).then((res) => {
-    })
+  function updateTurma(Turma) {
+    const turmaUptade = {
+      username: "",
+    }
+
+    let allTurmas = document.querySelectorAll(".turma");
+    let allUsername = document.querySelectorAll(".username");
+    
+    let i = 0;
+    while (i != allTurmas.length) {
+      if (allTurmas[i].innerHTML == Turma.turma) {
+        turmaUptade.username = allUsername[i].innerHTML;
+        break
+      }
+      else {
+        i++
+      }
+    }
+    let turmaChanged = Object.assign({}, Turma, turmaUptade);
+    console.log(turmaChanged)
+    dispatch(updateTurmaServer(turmaChanged));
+    location.reload();
+  }
+
+  function deletaTurma(id) {
+    dispatch(deleteTurmaServer(id))
   }
 
   if(turmas.length != 0){
@@ -37,8 +60,10 @@ function ListaTurmas(props) {
             <Table className="table-hover">
               <TableHead>
                 <TableRow>
-                  <TableCell align="right">Turma</TableCell>
-                  <TableCell align="center">Username</TableCell>
+                  <TableCell >Turma</TableCell>
+                  <TableCell >Nome</TableCell>
+                  <TableCell >Data de Inicio</TableCell>
+                  <TableCell >Data de Fim</TableCell>
                   <TableCell></TableCell>
                   <TableCell></TableCell>
                 </TableRow>
@@ -46,12 +71,14 @@ function ListaTurmas(props) {
               <TableBody>
                 {turmas.map((row) => (
                   <TableRow key={row.id}>
-                    <TableCell align="right" component="th" scope="row">
-                      {row.id}
+                    <TableCell component="th" scope="row" className="turma">
+                      {row.turma}
                     </TableCell>
-                    <TableCell align="center">{row.username}</TableCell>
-                    <TableCell><Button variant="outline-danger" type="submit" onClick={() => deletaTurma(row.id)}>Apagar</Button></TableCell>
-                    <TableCell><Button variant="outline-info" type="submit" onClick={() => alert("Em construção")}>Editar  </Button></TableCell>
+                    <TableCell className="username" contentEditable="true">{row.username}</TableCell>
+                    <TableCell >{row.dataInicio}</TableCell>
+                    <TableCell >{row.dataFim}</TableCell>
+                    <TableCell><Button variant="danger" type="submit" onClick={() => deletaTurma(row.id)}>Apagar</Button></TableCell>
+                    <TableCell><Button variant="primary" type="submit" onClick={() => updateTurma(row)}>Editar  </Button></TableCell>
                   </TableRow>
                 ))}
               </TableBody>
