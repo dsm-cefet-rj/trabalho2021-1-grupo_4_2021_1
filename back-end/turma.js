@@ -47,8 +47,8 @@ router.put('/:id', (req, res) => {
       Turmas.findByIdAndUpdate(req.params.id, {
         $set: req.body
       }, { new: true })
-        .then(res => {
-          res.status(200).json({msg: 'Turma alterada com sucesso', res});
+        .then(response => {
+          res.status(200).json({msg: 'Turma alterada com sucesso', response});
         })
         .catch(err => res.status(400).json({msg: 'Id não encontrado', erro: err}))
    }

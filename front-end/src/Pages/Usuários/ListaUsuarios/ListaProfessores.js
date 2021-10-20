@@ -25,13 +25,16 @@ function ListaProfessores(props) {
     }
   }, [status, dispatch])
 
-  function updateProfessor(professor){
+  function updateProfessor(professor, id){
+    const arrayLinhas = Array.from(document.querySelectorAll('.professor')).map(el => Array.from(el.children).slice(0, 3));
+    const professorEditado = arrayLinhas[id];
     
-    const professorObj = {
-      nome: document.getElementById('nome').innerHTML,
-      turma: document.getElementById('turma').innerHTML,
-      username: document.getElementById('username').innerHTML
+    const professorObj = {  
+      turma: professorEditado[0].innerHTML,
+      nome: professorEditado[1].innerHTML,
+      username: professorEditado[2].innerHTML
     }
+    debugger;
     let professorUpdate = Object.assign({},professor, professorObj)
     dispatch(updateProfessorServer(professorUpdate));
     location.reload();
@@ -80,8 +83,8 @@ function ListaProfessores(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {professores.map((row) => (
-                  <TableRow key={row.id}>
+                {professores.map((row, index) => (
+                  <TableRow key={row.id} className="professor">
                     <TableCell id="turma" align="center" contentEditable="true">
                       {row.turma}
                     </TableCell>
@@ -95,7 +98,7 @@ function ListaProfessores(props) {
                       {row.tipoconta}
                     </TableCell>
                     <TableCell align="right"><Button variant="outline-danger" type="submit" onClick={() => deletaProfessor(row.id)}>Apagar</Button></TableCell>
-                    <TableCell><Button variant="outline-primary" type="submit" onClick={() => updateProfessor(row) }>Enviar</Button></TableCell>
+                    <TableCell><Button variant="outline-primary" type="submit" onClick={() => updateProfessor(row, index) }>Enviar</Button></TableCell>
                   </TableRow>
                 ))}
               </TableBody>

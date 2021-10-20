@@ -44,8 +44,8 @@ function ListaTurma(props) {
       }
     }
     let turmaChanged = Object.assign({}, Turma, turmaUptade);
-    console.log(turmaChanged)
     dispatch(updateTurmaServer(turmaChanged));
+    location.reload();
   }
 
   function deletaTurma(id) {
