@@ -21,6 +21,7 @@ export function NavBar(props) {
     const isAluno = () => type == 'alunos';
     const isProf = () => type == 'professores';
     const isEscola = () => type == 'escolas';
+    const loggedIn = () => !!user;
     
     return (
         <div>
@@ -35,19 +36,19 @@ export function NavBar(props) {
                             <Nav.Link>
                                 <NavLink exact to="/" style={{textDecoration:'none'}}>Login</NavLink>
                             </Nav.Link>
-                            <Nav.Link hidden={isAluno()}>
+                            <Nav.Link hidden={!loggedIn() || isAluno()}>
                                 <NavLink to="/prova/criar" style={{textDecoration:'none'}}>Criar Prova</NavLink>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link hidden={!loggedIn()}>
                                 <NavLink to="/provas" style={{textDecoration:'none'}}>Provas</NavLink>
                             </Nav.Link>
-                            <Nav.Link hidden={isAluno() || isProf()}>
+                            <Nav.Link hidden={!loggedIn() || isAluno() || isProf()}>
                                 <NavLink to="/cadastro" style={{textDecoration:'none'}}>Cadastro</NavLink>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link hidden={!loggedIn()}>
                                 <NavLink to="/resultado" style={{textDecoration:'none'}}>Resultado</NavLink>
                             </Nav.Link>
-                            <Nav.Link hidden={isAluno() || isProf()}>
+                            <Nav.Link hidden={!loggedIn() || isAluno() || isProf()}>
                                 <NavLink to="/turma" style={{textDecoration:'none'}}>Turma</NavLink>
                             </Nav.Link>
                         </Nav>

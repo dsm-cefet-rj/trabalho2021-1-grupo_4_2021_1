@@ -31,8 +31,8 @@ function ListaProfessores(props) {
     
     const professorObj = {  
       turma: professorEditado[0].innerHTML,
-      nome: professorEditado[1].innerHTML,
-      username: professorEditado[2].innerHTML
+      username: professorEditado[1].innerHTML,
+      nome: professorEditado[2].innerHTML,
     }
     let professorUpdate = Object.assign({},professor, professorObj)
     dispatch(updateProfessorServer(professorUpdate));
