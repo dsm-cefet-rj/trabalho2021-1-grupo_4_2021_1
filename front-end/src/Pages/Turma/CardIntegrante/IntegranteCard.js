@@ -16,7 +16,14 @@ export default function IntegranteCard(props) {
 
            
                 <table className="professor">
-
+                    <thead>
+                        <tr>
+                            <th>Turma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>{props.turma}</tr>
+                    </tbody>
                     <thead>
                         <tr>
                             <th>Professor</th>
@@ -44,6 +51,24 @@ export default function IntegranteCard(props) {
 
                     <tr>
                         <td>{mostraAlunos}</td>
+                    </tr>
+
+                </table>
+
+                <table className="data">
+                    <tr>
+                        <th>DataInicio</th>
+                    </tr>
+
+                    <tr>
+                        <td>{props.dataInicio}</td>
+                    </tr>
+
+                    <tr>
+                        <th>DataFim</th>
+                    </tr>
+                    <tr>
+                        <td>{props.dataFim}</td>
                     </tr>
 
                 </table>

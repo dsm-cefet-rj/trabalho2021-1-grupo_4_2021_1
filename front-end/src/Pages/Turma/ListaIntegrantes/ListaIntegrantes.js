@@ -1,77 +1,113 @@
-import React, { useEffect } from 'react';
-import IntegranteCard from '../CardIntegrante/IntegranteCard';
+import { Paper, TableBody, TableCell, TableContainer } from '@material-ui/core';
+import React, { useEffect} from 'react';
+import { Table } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteTurmaServer, fetchTurmas, selectAllTurmas, selectTurmasById} from '../TurmasSlice';
-import { fetchProfessores, selectAllProfessores } from '../../Professor/ProfessoresSlice';
-import { fetchAlunos, selectAllAlunos } from '../../Aluno/AlunosSlice';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import './ListaIntegrantes.css';
-import { isFulfilled } from '@reduxjs/toolkit';
+import UIContainer from '../../../Components/Layout/Container/container';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { fetchTurmas, selectAllTurmas, deleteTurmaServer, updateTurmaServer } from '../../Turma/TurmasSlice'
+import Button from 'react-bootstrap/Button';
 
 
-const useStyles = makeStyles({
-  root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-  },
-});
+function ListaIntegrantes(props) {
 
-export default function ListaIntegrantes() {
-
- /*  const turmas = useSelector(selectAllTurmas)
-  const status = useSelector(state => state.turmas.alunos.status);
-  const error = useSelector(state => state.turmas.alunos.error); */
+  const turmas = useSelector(selectAllTurmas)
+  const status = useSelector(state => state.turmas.status);
+  const error = useSelector(state => state.turmas.error);
 
   const dispatch = useDispatch();
 
-  const classes = useStyles();
+  useEffect(() => {
+    if (status === 'not_loaded') {
+      dispatch(fetchTurmas())
+    } else if (status === 'failed') {
+      setTimeout(()=>dispatch(fetchTurmas()), 5000);
+    }
+  }, [status, dispatch])
 
-  function handleClickExcluirIntegrante(id){
-    dispatch(deleteTurmaServer.alunos(id))
+  if (turmas.length != 0) {
+    return (
+      <>
+        <UIContainer>
+          <TableContainer component={Paper}>
+            <Table className="table-hover">
+              <TableHead>
+                <TableRow>
+                  <TableCell >Turma</TableCell>
+                  <TableCell >Nome</TableCell>
+                  <TableCell >Data de Inicio</TableCell>
+                  <TableCell >Data de Fim</TableCell>
+                  <TableCell>Professor</TableCell>
+                  <TableCell>Alunos</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {turmas.map((row) => (
+                  <TableRow key={row.id}>
+                    <TableCell component="th" scope="row" className="turma">
+                      {row.turma}
+                    </TableCell>
+                    <TableCell className="username">{row.nome}</TableCell>
+                    <TableCell contentEditable="true">{row.dataInicio}</TableCell>
+                    <TableCell contentEditable="true">{row.dataFim}</TableCell>
+                    <TableCell className="professor">{row.professor} </TableCell>
+                    <TableCell className="alunos">{row.alunos} </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Button href="/cadastro" variant="outline-primary" style={{ marginTop: "2%" }}>Voltar</Button>
+        </UIContainer>
+      </>
+    )
+  }
+  else if(turmas.length == 0) {
+    return (
+      <>
+        <UIContainer>
+          <TableContainer component={Paper}>
+            <Table className="table-hover">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="right"></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableCell align="center"><h1>Lista Vazia!</h1></TableCell>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Button href="/cadastro" variant="outline-primary" style={{ marginTop: "2%" }}>Voltar</Button>
+        </UIContainer>
+      </>
+    )
+  }
+  else{
+    return (
+      <>
+        <UIContainer>
+          <TableContainer component={Paper}>
+            <Table className="table-hover">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="right"></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableCell align="center"><h1>Error: {error}</h1></TableCell>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Button href="/cadastro" variant="outline-primary" style={{ marginTop: "2%" }}>Voltar</Button>
+        </UIContainer>
+      </>
+    )
   }
 
-    useEffect(() => {
-      if(status == 'not_loaded') {
-        dispatch(fetchTurmas.alunos())
-      }
-    }, [status, dispatch])
-    
 
-
-    var professores = fetchProfessores();
-    var alunos = fetchAlunos();
-
-  return (
-    <div>
-
-      <div className="lista">
-        <IntegranteCard
-          
-          professor= "diogo"
-          alunos={["claudio","eduardo","leonardo","matheus"]}
-          /*  */
-          />
-
-        <IntegranteCard
-          professor="prof 2"
-          alunos={["aluno 1","aluno 2","aluno 3","aluno 4"]} 
-          // alunos={props.turmas.alunos.map()}
-          />
-
-
-        <IntegranteCard
-         professor="prof 3"
-         alunos={["aluno 5","aluno 6","aluno 7","aluno 8"]}
-         />
-
-
-      </div>
-    </div>
-  )
 }
+
+export default ListaIntegrantes;
+
+
