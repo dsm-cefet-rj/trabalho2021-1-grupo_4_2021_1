@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TipoEnum } from '../../shared/enums';
+import { useHistory } from 'react-router';
 import {ViewHeadline, RadioButtonChecked, CheckBox} from '@material-ui/icons';
 import './styles.css';
 
@@ -8,6 +9,9 @@ export function NewQuestion({ isEditing, children, createNewQuestion }) {
   const [tipoQuestao, setTipoQuestao] = useState();
   const [opcao, setOpcao] = useState();
   const [opcoes, setOpcoes] = useState([]);
+  const [type, setType] = useState();
+  useEffect(() => setType(localStorage.getItem('tipo')), [type])
+  let history = useHistory()  
 
   const handleEnunciadoChange = (event) => {
     setEnunciadoNovo(event.target.value);

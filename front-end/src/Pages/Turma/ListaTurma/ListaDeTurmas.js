@@ -1,10 +1,20 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import CardTurma from '../CardTurma/TurmaCard';
 import { NavLink } from "react-router-dom";
+import { useHistory } from 'react-router';
 import { Navbar, Nav, Container} from 'react-bootstrap'
 import './ListaDeTurmas.css';
 
 export default function ListaDeTurmas(props) {
+  const [type, setType] = useState();
+  useEffect(() => setType(localStorage.getItem('tipo')), [type])
+  let history = useHistory()  
+
+  if(type === 'alunos' || type ==='professores'){
+    history.push('/');
+    alert('VOCÊ NÃO TEM ACESSO!!!');
+  }
   return (
     <div>
       <div className="lista">

@@ -30,55 +30,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser())
 
-/* const auth = async (req, res, next) => {
-
-  if(!req.headers.cookie['user']) {
-    const authHeader = req.headers.authorization;
-    if (!authHeader) {
-      console.error('You are not authenticated!');
-      res.setHeader('WWW-Authenticate', 'Basic');
-      res.status(401).send('You are not authenticated!')
-      next(new Error());
-      return;
-    }
-  
-    const auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-    const user = auth[0];
-    const pass = auth[1];
-  
-    let usuario;
-    switch(user.split('@')[1]) {
-      case 'alunos.com':
-        usuario = await Alunos.findOne({'username': user});
-        break;
-      case 'professores.com':
-        usuario = await Professores.findOne({'username': user});
-        break;
-      case 'turmas.com':
-        usuario = await Turmas.findOne({'username': user});
-        break;
-    }
-  
-    if (usuario && usuario.username == user && usuario.password == pass) {
-      res.cookie('user', user);
-      next(); // authorized
-    } 
-    else {
-      console.error('You are not authenticated!');
-      res.setHeader('WWW-Authenticate', 'Basic');      
-      res.status(401).send('You are not authenticated!')
-      next(new Error());
-    }
-  }
-  else {
-    console.error('You are not authenticated!');
-    res.setHeader('WWW-Authenticate', 'Basic');      
-    res.status(401).send('You are not authenticated!')
-    next(new Error());
-  }
-
-} */
-
 
 app.use('/', authenticate);
 app.use('/exames', verifyJWT, exames);

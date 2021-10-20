@@ -20,7 +20,7 @@ export const CreateExam = (props) => {
     async function salvarProva() {
         alert("Prova criada com sucesso!");
         dispatch(addExameServer({questoes, nome: nomeProva})).then((res) => {
-            history.push(`/prova/${res.payload._id}`);
+            history.push(`/prova/${res.payload.id}`);
         });
     }
 

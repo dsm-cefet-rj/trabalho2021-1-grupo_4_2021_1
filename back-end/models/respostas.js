@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 const normalize = require('normalize-mongoose');
 
 const respostasSchema = new Schema({
+    _id: {
+        type: String,
+        required: true,
+    },
     prova: {
         type: [],
         required: true,

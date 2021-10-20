@@ -1,8 +1,13 @@
 import { TipoEnum } from '../../shared/enums';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import './styles.css';
 
 export function Question({ dados, isEditing, onAnswer, children }) {
+
+  const [type, setType] = useState();
+  useEffect(() => setType(localStorage.getItem('tipo')), [type])
+  let history = useHistory()  
 
   const [answer, setAnswer] = useState([]);
 

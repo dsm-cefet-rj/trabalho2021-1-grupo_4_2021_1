@@ -5,8 +5,8 @@ const Turmas = require('./models/turmas');
 
 
 
-router.route('/')
-.get(async (req, res, next)=> {
+
+router.route('/').get(async (req, res, next)=> {
 
     let err;
     res.setHeader('Content-type', 'application/json');
@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
       console.log('Turma criada ', turma);
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
-      res.json(aluno);
+      res.json(turma);
     }, (err) => next(err))
       .catch((err) => next(err));
 });

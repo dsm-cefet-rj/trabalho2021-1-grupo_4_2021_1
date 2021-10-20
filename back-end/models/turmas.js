@@ -7,6 +7,7 @@ const turmaSchema = new Schema({
     username: {
         type: String,
         required: true,
+        lowercase: true
     },
     password: {
         type: String,
@@ -14,20 +15,24 @@ const turmaSchema = new Schema({
     },
     nome: {
         type: String,
-        required: true,
+        required: false,
+    },
+    turma: {
+        type: String,
+        required: false,
+    },
+    tipoconta: {
+        type: String,
+        required: false,
     },
     professor: {
         type: String,
     },
-    alunos:{
-        type: String,
-    },
     dataInicio:{
-        type: String,
-
+        type: Date,
     },
     dataFim:{
-        type: String,
+        type: Date,
     }
 })
 
