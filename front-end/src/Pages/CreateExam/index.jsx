@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Question } from '../../Components/Question';
 import { NewQuestion } from '../../Components/NewQuestion';
 import './styles.css';
@@ -13,14 +13,21 @@ export const CreateExam = (props) => {
     const [questoes, setQuestoes] = useState([]);
     const [nomeProva, setNomeProva] = useState();
 
+    useEffect(() => {
+        const tipo = localStorage.getItem('tipo');
+        if(!tipo || tipo != 'professores'){
+            history.push('/');
+        }
+    }, [])
+
     const addQuestion = (tipo, pergunta, options) => {
         setQuestoes([...questoes, {pergunta, tipo, options}]);
     }
 
     async function salvarProva() {
-        alert("Prova criada com sucesso!");
         dispatch(addExameServer({questoes, nome: nomeProva})).then((res) => {
-            history.push(`/prova/${res.payload.id}`);
+            alert("Prova criada com sucesso!");
+            history.push(`/provas`);
         });
     }
 

@@ -85,18 +85,20 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-   if(req.body && req.params.id) {
-      Prova.findByIdAndUpdate(req.params.id, {
-        $set: req.body
-      }, { new: true })
-        .then(res => {
-          res.status(200).json({msg: 'Prova alterada com sucesso', res});
-        })
-        .catch(err => res.status(400).json({msg: 'Id não encontrado', erro: err}))
-   }
-   else {
-       res.status(400).send('Requisição mal-formulada');
-    }
+  if(req.body && req.params.id) {
+    Prova.findByIdAndUpdate(req.params.id, {
+      $set: req.body
+    }, { new: true })
+      .then(response => {
+        res.status(200).json({msg: 'Prova alterada com sucesso', response});
+      })
+      .catch(err => {
+        res.status(400).json({msg: 'Id não encontrado', erro: err})
+      })
+  }
+  else {
+    res.status(400).send('Requisição mal-formulada');
+  }
 });
 
 module.exports = router;

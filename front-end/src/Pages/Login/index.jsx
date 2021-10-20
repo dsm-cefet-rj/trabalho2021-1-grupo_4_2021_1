@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { MdEmail, MdLock} from "react-icons/md";
-import { NavBar } from '../../Components/Layout/NavBar/navBar';
 import './login.css';
 import { login } from './login.service';
 import { useSelector, useDispatch } from "react-redux";
-import { selectExamesIds } from '../ExamesSlice';
+import { fetchExames, selectExamesIds } from '../ExamesSlice';
 
 
 export const Login = (props) => {
@@ -16,9 +15,8 @@ export const Login = (props) => {
         password: ''
     });
 
-    const [statusExames, examesIds] = useSelector(selectExamesIds);
+    const examesIds = useSelector((state) => selectExamesIds(state));
     const dispatch = useDispatch();
-
 
     const checkLoginType = async () => {
         let type, redirectUrl;
@@ -30,7 +28,7 @@ export const Login = (props) => {
         await login(user.username, user.password).then(res => {
             const loggedIn = res.data.token;
             if (type == "alunos") {
-                redirectUrl = 'prova/6154e1b968a7b479d49ce17a';
+                redirectUrl = '/provas';
             }
             else if (type == "professores") {
                 redirectUrl = '/prova/criar';
@@ -53,7 +51,8 @@ export const Login = (props) => {
                 localStorage.setItem('tipo', user.username.split('@')[1].split('.com')[0]);
                 // localStorage.setItem('userId', loggedIn.id);
                 history.push(redirectUrl);
-                location.reload();
+                props.changeUserState(user.username);
+                // location.reload();
                 alert('Você foi logado com sucesso!');
             }
         })

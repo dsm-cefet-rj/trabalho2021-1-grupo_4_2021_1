@@ -1,42 +1,30 @@
-import React, { useState } from 'react';
-import { Header } from '../../Components/Header';
-import { Question } from '../../Components/Question';
-import { TipoEnum } from '../../shared/enums';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 export const ExamResult = () => {
 
-    const [questoes, setQuestoes] = useState(
-        [
-            {
-                pergunta: "Quem descobriu o brasil?",
-                tipo: TipoEnum.multipla,
-                options: ['Pedro Álvares Cabral', 'Nabucodonosor', 'Cristóvão Colombo'],
-                resposta: 0
-            },
-            {
-                pergunta: "Como se calcula a hipotenusa de um triângulo retângulo?",
-                tipo: TipoEnum.discursiva,
-                resposta: "Utilizando a fórmula de Bháskara"
-            },
-            {
-                pergunta: "Quanto é 2 + 2",
-                tipo: TipoEnum.objetiva,
-                options: [1, 3, 4, 22],
-                resposta: 2
-            },
-        ]
-    )
-
     return (
-        <div className="page">
-            <Header />
-            <div className="prova d-flex">
-                {questoes.map((questao, index) => {
-                        const num = index + 1;
-                        return <Question key={num} dados={questao}>{num}</Question>
-                })}
+        <div className="page d-flex text-center text-white bg-dark">
+            <div className="cover-container d-flex w-100 p-3 mx-auto flex-column">
+                <header className="mb-auto"></header>
+                <main className="px-3">
+                    <h1>Obrigado por enviar sua prova!</h1>
+                    <p className="lead">
+                        O(A) professor(a) já está corrigindo e em breve você terá seus resultados!
+                    </p>
+
+                    <p className="lead">
+                        <NavLink className="ver-provas btn btn-lg btn-secondary fw-bold border-white bg-white" to="/provas">Ver Provas</NavLink>
+                    </p>
+                </main>
+                <footer className="mt-auto text-white-50">
+                    <p>GEPETO</p>
+                </footer>
             </div>
         </div>
     )
 }
+
+export default ExamResult;

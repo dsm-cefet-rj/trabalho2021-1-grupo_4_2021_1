@@ -1,19 +1,13 @@
 
 .page {
-    margin-bottom: 5vh;
+    height: 88vh;
 }
 
-.prova {
-    flex-flow: column nowrap;
-    align-items: center;
+.ver-provas {
+    color: #333;
+    text-shadow: none;
 }
 
-button.btn {
-    margin-right: 15%;
-}
-
-@media (max-width: 576px){
-    .header .nome {
-        font-size: 24px;
-    }
+.ver-provas:hover{
+    color: #0d6efd;
 }

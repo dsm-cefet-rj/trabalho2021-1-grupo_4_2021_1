@@ -14,24 +14,24 @@ const initialState = examesAdapter.getInitialState({
 
 export const fetchExames = createAsyncThunk('exames/fetchExames', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/exames`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpGet(`${baseUrl}/exames`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const fetchExamesById = createAsyncThunk('exames/fetchExamesById', async (id, {getState}) => {
-    return await httpGet(`${baseUrl}/exames/${id}`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpGet(`${baseUrl}/exames/${id}`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const deleteExameServer = createAsyncThunk('exames/deleteExameServer', async (idExame, {getState}) => {
-    await httpDelete(`${baseUrl}/exames/${idExame}`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    await httpDelete(`${baseUrl}/exames/${idExame}`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
     return idExame;
 });
 
 export const addExameServer = createAsyncThunk('exames/addExameServer', async (exame, {getState}) => {
-    return await httpPost(`${baseUrl}/exames`, exame, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpPost(`${baseUrl}/exames`, exame, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const updateExameServer = createAsyncThunk('exames/updateExameServer', async (exame, {getState}) => {
-    return await httpPut(`${baseUrl}/exames/${exame.id}`, exame, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpPut(`${baseUrl}/exames/${exame._id}`, exame, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const examesSlice = createSlice({

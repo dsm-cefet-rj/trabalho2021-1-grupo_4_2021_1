@@ -1,0 +1,11 @@
+
+.provas {
+    padding: 10%;
+}
+
+.table th {
+    font-size: 20px;
+    border-right: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+    padding: 5px 10px;
+}

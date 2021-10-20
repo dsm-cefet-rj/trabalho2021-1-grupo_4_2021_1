@@ -12,20 +12,20 @@ const initialState = alunosAdapter.getInitialState({
 
 export const fetchAlunos = createAsyncThunk('alunos/fetchAlunos', async (_, {getState}) => {
     console.log(getState());
-    return await httpGet(`${baseUrl}/alunos`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpGet(`${baseUrl}/alunos`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const deleteAlunoServer = createAsyncThunk('alunos/deleteAlunoServer', async (idAluno, {getState}) => {
-    await httpDelete(`${baseUrl}/alunos/${idAluno}`, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    await httpDelete(`${baseUrl}/alunos/${idAluno}`, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
     return idAluno;
 });
 
 export const addAlunoServer = createAsyncThunk('alunos/addAlunoServer', async (aluno, {getState}) => {
-    return await httpPost(`${baseUrl}/alunos`, aluno, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpPost(`${baseUrl}/alunos`, aluno, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const updateAlunoServer = createAsyncThunk('alunos/updateAlunoServer', async (aluno, {getState}) => {
-    return await httpPut(`${baseUrl}/alunos/${aluno.id}`, aluno, {headers: {Authorization: `${localStorage.getItem('token')}` }});
+    return await httpPut(`${baseUrl}/alunos/${aluno.id}`, aluno, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }});
 });
 
 export const alunosSlice = createSlice({

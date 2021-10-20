@@ -8,12 +8,19 @@ import { useEffect } from "react";
 import '../../../assets/images/logo.png'
 
 
-export function NavBar() {
+export function NavBar(props) {
     const [user, setUser] = useState();
     const [type, setType] = useState();
-    
-    useEffect(() => setUser(localStorage.getItem('usuario')), [user])
-    useEffect(() => setType(localStorage.getItem('tipo')), [type])
+
+    useEffect(() => {
+        const usuario = localStorage.getItem('usuario');
+        setUser(usuario);
+        setType(localStorage.getItem('tipo'));
+    }, [props.usuario]);
+
+    const isAluno = () => type == 'alunos';
+    const isProf = () => type == 'professores';
+    const isEscola = () => type == 'escolas';
     
     return (
         <div>
@@ -25,17 +32,29 @@ export function NavBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-space-between">
                         <Nav className="navbar">
-                            <Nav.Link><NavLink exact to="/" style={{textDecoration:'none'}}>Login</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/prova/criar" style={{textDecoration:'none'}}>Criar Prova</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/prova/1" style={{textDecoration:'none'}}>Prova</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/cadastro" style={{textDecoration:'none'}}>Cadastro</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/resultado" style={{textDecoration:'none'}}>Resultado</NavLink></Nav.Link>
-                            <Nav.Link><NavLink to="/turma" style={{textDecoration:'none'}}>Turma</NavLink></Nav.Link>
+                            <Nav.Link>
+                                <NavLink exact to="/" style={{textDecoration:'none'}}>Login</NavLink>
+                            </Nav.Link>
+                            <Nav.Link hidden={isAluno()}>
+                                <NavLink to="/prova/criar" style={{textDecoration:'none'}}>Criar Prova</NavLink>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <NavLink to="/provas" style={{textDecoration:'none'}}>Provas</NavLink>
+                            </Nav.Link>
+                            <Nav.Link hidden={isAluno() || isProf()}>
+                                <NavLink to="/cadastro" style={{textDecoration:'none'}}>Cadastro</NavLink>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <NavLink to="/resultado" style={{textDecoration:'none'}}>Resultado</NavLink>
+                            </Nav.Link>
+                            <Nav.Link hidden={isAluno() || isProf()}>
+                                <NavLink to="/turma" style={{textDecoration:'none'}}>Turma</NavLink>
+                            </Nav.Link>
                         </Nav>
                         <Navbar.Text className="navLogin-pai">
                             {
                                 user
-                                ? <span className="navLogin" >Logado como: {user} <NavLink exact to="/" onClick={() => {
+                                ? <span className="navLogin">Logado como: {user} <NavLink exact to="/" onClick={() => {
                                     localStorage.removeItem('token');
                                     localStorage.removeItem('usuario');
                                     localStorage.removeItem('tipo');
