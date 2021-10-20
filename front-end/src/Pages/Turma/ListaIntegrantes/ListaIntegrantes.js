@@ -48,8 +48,8 @@ function ListaIntegrantes(props) {
                       {row.turma}
                     </TableCell>
                     <TableCell className="username">{row.nome}</TableCell>
-                    <TableCell contentEditable="true">{row.dataInicio}</TableCell>
-                    <TableCell contentEditable="true">{row.dataFim}</TableCell>
+                    <TableCell contentEditable="true">{row.dataInicio.split('T')[0]}</TableCell>
+                    <TableCell contentEditable="true">{row.dataFim.split('T')[0]}</TableCell>
                     <TableCell className="professor">{row.professor} </TableCell>
                     <TableCell className="alunos">{row.alunos} </TableCell>
                   </TableRow>
