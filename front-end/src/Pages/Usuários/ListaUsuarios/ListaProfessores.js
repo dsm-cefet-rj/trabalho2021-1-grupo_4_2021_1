@@ -34,7 +34,6 @@ function ListaProfessores(props) {
       nome: professorEditado[1].innerHTML,
       username: professorEditado[2].innerHTML
     }
-    debugger;
     let professorUpdate = Object.assign({},professor, professorObj)
     dispatch(updateProfessorServer(professorUpdate));
     location.reload();
