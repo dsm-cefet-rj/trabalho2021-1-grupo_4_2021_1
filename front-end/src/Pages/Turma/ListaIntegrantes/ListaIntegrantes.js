@@ -1,5 +1,5 @@
 import { Paper, TableBody, TableCell, TableContainer } from '@material-ui/core';
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import UIContainer from '../../../Components/Layout/Container/container';
@@ -48,10 +48,8 @@ function ListaIntegrantes(props) {
                       {row.turma}
                     </TableCell>
                     <TableCell className="username">{row.nome}</TableCell>
-                    <TableCell contentEditable="false">
-                      {row.dataInicio.split('T')[0]}
-                    </TableCell>
-                    <TableCell contentEditable="false">{row.dataFim.split('T')[0]}</TableCell>
+                    <TableCell contentEditable="true">{row.dataInicio.split('T')[0]}</TableCell>
+                    <TableCell contentEditable="true">{row.dataFim.split('T')[0]}</TableCell>
                     <TableCell className="professor">{row.professor} </TableCell>
                     <TableCell className="alunos">{row.alunos} </TableCell>
                   </TableRow>
