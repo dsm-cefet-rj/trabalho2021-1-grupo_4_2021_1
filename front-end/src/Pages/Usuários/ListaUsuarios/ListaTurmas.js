@@ -75,8 +75,8 @@ function ListaTurma(props) {
                       {row.turma}
                     </TableCell>
                     <TableCell className="username" contentEditable="true">{row.nome}</TableCell>
-                    <TableCell contentEditable="true">{row.dataInicio}</TableCell>
-                    <TableCell contentEditable="true">{row.dataFim}</TableCell>
+                    <TableCell contentEditable="true">{row.dataInicio.split('T')[0]}</TableCell>
+                    <TableCell contentEditable="true">{row.dataFim.split('T')[0]}</TableCell>
                     <TableCell><Button variant="danger" type="submit" onClick={() => deletaTurma(row.id)}>Apagar</Button></TableCell>
                     <TableCell><Button variant="primary" type="submit" onClick={() => updateTurma(row)}>Editar  </Button></TableCell>
                   </TableRow>
